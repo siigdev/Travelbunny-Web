@@ -1,3 +1,5 @@
+@import "custom-bootstrap";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +9,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button[type=submit] {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 13px;
+  width: 100%;
+  min-width: 100%;
+}
+
+
+// Landing page
+.search-box {
+  background-color: #fff;
+  padding: 20px 30px;
+  label {
+    padding: 10px;
+  }
+  .search-trips-button {
+    background-color: #e83f53;
+    border: 2px solid #e83f53;
+    color: #FFF;
+  }
 }
