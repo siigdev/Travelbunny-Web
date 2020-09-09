@@ -1,71 +1,65 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions/todo'
-import { Form, InputGroup, FormControl, Button, Container, Row, Col } from 'react-bootstrap';
+// eslint-disable-next-line
+import { Form, InputGroup, FormControl, Button, Container, Col } from 'react-bootstrap';
 
 const AddTodo = ({ dispatch }) => {
   let input
 
   return (
-    <Container className="search-container">
+    <Container className="search-container" fluid>
     <Container className="search-box">
-      <form onSubmit={e => {
+      <Form inline onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
         }
         dispatch(addTodo(input.value))
       }}>
-        <Row>
-          <Col>
-          <span>Plan your trip!</span>
+          <Form.Group>
+            
+            <div class="search-title">
+          <h5>
+              Start exploring
+            </h5>
+            </div>
+            <Form.Label htmlFor="input-destination">Where?</Form.Label>
+            <InputGroup>
+            <Form.Control
+              type="text"
+              className="mx-sm-2"
+              id="input-destination"
+              aria-describedby="destination-help"
+            />
+            </InputGroup>
+            <Form.Label htmlFor="input-calendar">When?</Form.Label>
+              <InputGroup>
+              <Form.Control
+                type="text"
+                className="mx-sm-2"
+                id="input-calendar"
+                aria-describedby="calendar-help"
+              />
+            
+            </InputGroup>
+            <Form.Label htmlFor="input-duration">What?</Form.Label>
+            <InputGroup>
+            <Form.Control
+              type="text"
+              className="mx-sm-2"
+              id="input-duration"
+              aria-describedby="duration-help"
+            />
+            </InputGroup>
+            
+          <Col xs="auto">
+            <Button type="submit" className="mb-2 search-trips-button">
+              Submit
+            </Button>
           </Col>
-          <Col>
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          </Col>
-          <Col>
-          <InputGroup className="mb-3">
-            <FormControl id="location-search" aria-describedby="location-search" />
-            <InputGroup.Append>
-              <InputGroup.Text id="location-search">
-                :)
-              </InputGroup.Text>
-            </InputGroup.Append>
-          </InputGroup>
-          </Col>
-          <Col>
-          <label htmlFor="calendar-search">When?</label>
-          </Col>
-          <Col>
-          <InputGroup className="mb-3">
-            <FormControl id="calendar-search" aria-describedby="calendar-search" />
-            <InputGroup.Append>
-              <InputGroup.Text id="calendar-search">
-                :)
-              </InputGroup.Text>
-            </InputGroup.Append>
-          </InputGroup>
-          </Col>
-          <Col>
-          <label htmlFor="location-search">What?</label>
-          </Col>
-          <Col>
-          <InputGroup className="mb-3">
-            <FormControl id="duration-search" aria-describedby="duration-search" />
-            <InputGroup.Append>
-              <InputGroup.Text id="duration-search">
-                :)
-              </InputGroup.Text>
-            </InputGroup.Append>
-          </InputGroup>
-          </Col>
-          <Col>
-            <Button className="search-trips-button" variant="primary">Primary</Button>
-            </Col>
-        </Row>
-      </form>
+          </Form.Group>
+        </Form>
     </Container>
     </Container>
   )
