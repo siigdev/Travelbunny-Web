@@ -1,70 +1,88 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions/todo'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line
 import { Form, InputGroup, FormControl, Button, Container, Col } from 'react-bootstrap';
 
-const AddTodo = ({ dispatch }) => {
-  let input
-
-  return (
-    <Container className="search-container" fluid>
-    <Container className="search-box">
-      <Form inline onSubmit={e => {
-        e.preventDefault()
-        if (!input.value.trim()) {
-          return
-        }
-        dispatch(addTodo(input.value))
-      }}>
-          <Form.Group>
-            
-            <div class="search-title">
-          <h5>
-              Start exploring
-            </h5>
-            </div>
-            <Form.Label htmlFor="input-destination">Where?</Form.Label>
-            <InputGroup>
-            <Form.Control
-              type="text"
-              className="mx-sm-2"
-              id="input-destination"
-              aria-describedby="destination-help"
-            />
-            </InputGroup>
-            <Form.Label htmlFor="input-calendar">When?</Form.Label>
+export default class AddTodo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: '1',
+      endDate: '1',
+      city: 'Shanghai',
+      country: 'CH',
+      stayLength: 20,
+      currency: 'EUR'
+    }
+  }
+  render() {
+    return (
+      <Container className="search-container" fluid>
+      <Container className="search-box">
+        <Form inline onSubmit={e => {
+          e.preventDefault()
+        }}>
+            <Form.Group>
+              
+              <div className="search-title">
+            <h5>
+                Start exploring
+              </h5>
+              </div>
+              <Form.Label htmlFor="input-city">Where?</Form.Label>
               <InputGroup>
               <Form.Control
                 type="text"
                 className="mx-sm-2"
-                id="input-calendar"
-                aria-describedby="calendar-help"
+                id="input-city"
+                aria-describedby="city-help"
+                defaultValue={this.state.city}
+                onChange={(event)=>this.setState({value: event.target.value})}
               />
-            
-            </InputGroup>
-            <Form.Label htmlFor="input-duration">What?</Form.Label>
-            <InputGroup>
-            <Form.Control
-              type="text"
-              className="mx-sm-2"
-              id="input-duration"
-              aria-describedby="duration-help"
-            />
-            </InputGroup>
-            
-          <Col xs="auto">
-            <Button type="submit" className="mb-2 search-trips-button">
-              Submit
-            </Button>
-          </Col>
-          </Form.Group>
-        </Form>
-    </Container>
-    </Container>
-  )
+              </InputGroup>
+              <Form.Label htmlFor="input-start-date">When?</Form.Label>
+                <InputGroup>
+                <Form.Control
+                  type="text"
+                  className="mx-sm-2"
+                  id="input-start-date"
+                  aria-describedby="start-date-help"
+                  defaultValue={this.state.startDate}
+                  onChange={(event)=>this.setState({startDate: event.target.value})}
+                />
+              
+              </InputGroup>
+              <Form.Label htmlFor="input-end-date">What?</Form.Label>
+              <InputGroup>
+              <Form.Control
+                type="text"
+                className="mx-sm-2"
+                id="input-end-date"
+                aria-describedby="end-date-help"
+                defaultValue={this.state.endDate}
+                onChange={(event)=>this.setState({endDate: event.target.value})}
+              />
+              </InputGroup>
+              
+            <Col xs="auto">
+              <Link to={{
+                pathname: '/Browse',
+                browseProps: {
+                  test: this.state
+                }
+              }}>
+                <Button type="submit" className="mb-2 search-trips-button">
+                  Submit
+                </Button>
+              </Link>
+            </Col>
+            </Form.Group>
+          </Form>
+      </Container>
+      </Container>
+    )
+  }
 }
 
-export default connect()(AddTodo)
 
 

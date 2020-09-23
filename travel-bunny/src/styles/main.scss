@@ -16,6 +16,28 @@ footer {
   color: #bdbdbd;
   box-sizing: border-box;
 }
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 5vh;
+  background-color: lightblue;
+  color: white;
+}
+.nav-links {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  .nav-link {
+    text-decoration: none !important;
+    color: white;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
 .App {
   width: 100%;
   margin: 0;
