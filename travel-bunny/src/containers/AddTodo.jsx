@@ -7,13 +7,27 @@ export default class AddTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: '1',
-      endDate: '1',
-      city: 'Shanghai',
-      country: 'CH',
+      startDate: '2020-09-24',
+      endDate: '2020-10-10',
+      city: 'Copenhagen',
+      country: 'DK',
       stayLength: 20,
+      locale: 'en-US',
       currency: 'EUR'
     }
+  }
+  searchTrip() {
+    fetch("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?windowStart=2020-09-24&windowEnd=2020-10-15&initialLocation=Copenhagen&stayLength=20&country=DK&currency=CNY&locale=en-US")
+      .then(response => response.json())
+      .then(response => {
+        this.props.history.push({
+          pathname: '/Browse',
+          res: response,
+        })
+      })
+      .catch((error) => {
+        console.warn(error)
+      });
   }
   render() {
     return (
@@ -65,16 +79,16 @@ export default class AddTodo extends Component {
               </InputGroup>
               
             <Col xs="auto">
-              <Link to={{
+              {/* <Link to={{
                 pathname: '/Browse',
                 browseProps: {
                   test: this.state
                 }
-              }}>
-                <Button type="submit" className="mb-2 search-trips-button">
+              }}> */}
+                <Button type="submit" className="mb-2 search-trips-button" onClick={() => this.searchTrip()}>
                   Submit
                 </Button>
-              </Link>
+              {/* </Link> */}
             </Col>
             </Form.Group>
           </Form>

@@ -1,6 +1,26 @@
-$theme-colors: (
-    "info": tomato,
-    "danger": teal
-);
-
 @import "~bootstrap/scss/bootstrap";
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: checkbox;
+    box-sizing: border-box;
+    padding: initial;
+    border: initial;
+}
+.input-group-text {
+    background-color: #FFF;
+    color: #6c757d;
+}
+.badge-pill {
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin-right: 2px;
+}
+.badge-secondary {
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    background-color: transparent;
+}

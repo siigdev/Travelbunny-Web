@@ -4,6 +4,7 @@ import AddTodo from '../containers/AddTodo'
 import Footer from '../components/global/Footer'
 import Navigation from '../components/global/Navigation'
 import Browse from '../containers/Browse'
+import Trip from '../containers/Trip'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={AddTodo}/>
             <Route path="/Browse" component={Browse}/>
+            <Route path="/Trip" component={Trip}/>
           </Switch>
         <Footer />
       </div>
