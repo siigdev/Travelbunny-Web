@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // eslint-disable-next-line
 import { Form, InputGroup, FormControl, Button, Container, Col } from 'react-bootstrap';
 
-export default class AddTodo extends Component {
+export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,17 +20,6 @@ export default class AddTodo extends Component {
       pathname: `/Browse/${this.state.startDate}/${this.state.endDate}/${this.state.city}/${this.state.stayLength}/${this.state.country}/`,
       res: "response",
     })
-    // fetch("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?windowStart=2020-09-24&windowEnd=2020-10-15&initialLocation=Copenhagen&stayLength=20&country=DK&currency=CNY&locale=en-US)
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     this.props.history.push({
-    //       pathname: '/Browse',
-    //       res: response,
-    //     })
-    //   })
-    //   .catch((error) => {
-    //     console.warn(error)
-    //   });
   }
   render() {
     return (
@@ -54,7 +43,7 @@ export default class AddTodo extends Component {
                   id="input-city"
                   aria-describedby="city-help"
                   defaultValue={this.state.city}
-                  onChange={(event) => this.setState({ value: event.target.value })}
+                  onChange={(event) => this.setState({ city: event.target.value })}
                 />
               </InputGroup>
               <Form.Label htmlFor="input-start-date">When?</Form.Label>

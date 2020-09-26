@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/main.scss';
-import AddTodo from '../containers/AddTodo'
+import Main from '../containers/Main'
 import Footer from '../components/global/Footer'
 import Navigation from '../components/global/Navigation'
 import Browse from '../containers/Browse'
@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Navigation />
           <Switch>
-            <Route path="/" exact component={AddTodo}/>
+            <Route path="/" exact component={Main}/>
             <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
             {/* <Route path="/Trip" component={Trip}/> */}
             <Route path="/Trip/:id" component={Trip}/>

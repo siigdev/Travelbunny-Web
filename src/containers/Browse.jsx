@@ -45,14 +45,13 @@ export default class Browse extends Component {
         })
     }
     renderTrips() {
-        console.log("HEj");
-        if (!this.state.loading && !this.state.trips.length)
+        if (!this.state.loading && this.state.trips === undefined)
             return (
                 <Alert variant='danger'>
                     Error! We could not find any travel packages matching your search parameters. Please try again.
                 </Alert>
             )
-        return this.state.trips.map((trip) => {
+        else return this.state.trips.map((trip) => {
             return (
                 <div onClick={() => this.viewTrip(trip)} key={trip.id} >
                     <TripBox trip={trip} />
