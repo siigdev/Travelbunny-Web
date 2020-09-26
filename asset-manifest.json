@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Travelbunny-Web/static/css/main.24c097a7.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.0b060138.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.0b060138.chunk.js.map",
+    "main.js": "/Travelbunny-Web/static/js/main.a12ec0cf.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.a12ec0cf.chunk.js.map",
     "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.67385aae.js",
     "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.67385aae.js.map",
     "static/js/2.54db21e6.chunk.js": "/Travelbunny-Web/static/js/2.54db21e6.chunk.js",
     "static/js/2.54db21e6.chunk.js.map": "/Travelbunny-Web/static/js/2.54db21e6.chunk.js.map",
     "index.html": "/Travelbunny-Web/index.html",
-    "precache-manifest.5b2bf395e12a9f3f56f067649a1f941d.js": "/Travelbunny-Web/precache-manifest.5b2bf395e12a9f3f56f067649a1f941d.js",
+    "precache-manifest.40e88a988f5a7cb37c60f19c7878b4e3.js": "/Travelbunny-Web/precache-manifest.40e88a988f5a7cb37c60f19c7878b4e3.js",
     "service-worker.js": "/Travelbunny-Web/service-worker.js",
     "static/css/main.24c097a7.chunk.css.map": "/Travelbunny-Web/static/css/main.24c097a7.chunk.css.map",
     "static/js/2.54db21e6.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.54db21e6.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.67385aae.js",
     "static/js/2.54db21e6.chunk.js",
     "static/css/main.24c097a7.chunk.css",
-    "static/js/main.0b060138.chunk.js"
+    "static/js/main.a12ec0cf.chunk.js"
   ]
 }

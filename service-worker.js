@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Travelbunny-Web/precache-manifest.5b2bf395e12a9f3f56f067649a1f941d.js"
+  "/Travelbunny-Web/precache-manifest.40e88a988f5a7cb37c60f19c7878b4e3.js"
 );
 
 self.addEventListener('message', (event) => {
