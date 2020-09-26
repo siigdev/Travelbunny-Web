@@ -13,7 +13,7 @@ export default class Trip extends Component {
         if (props.location.res !== undefined)
             this.tripId = props.location.res.id
         this.state = {
-            loading: false,
+            loading: true,
             tripId: this.tripId
         }
     }
@@ -22,15 +22,20 @@ export default class Trip extends Component {
           .then(response => response.json())
           .then(response => {
             this.setState({loading: false, flights: response.tripDetails.flights})
-            console.log(this.state.flights);
           })
           .catch((error) => {
+            this.setState({loading: false})
             console.warn(error)
           });
     }
-
+    getCoordinates() {
+        let cords = [];
+        this.props.location.res.locations.map((loc) => {
+            cords.push({lat: loc.coordinates[0], lng: loc.coordinates[1]})
+        })
+        return cords;
+    }
     renderFlights() {
-        console.log(this.state.flights)
         if(this.state.flights === undefined) {
             return (
                 <Alert variant='danger'>
@@ -66,16 +71,8 @@ export default class Trip extends Component {
                         {this.renderFlights()}
                     </Container>
                 </Container>
-
-
-
-
-
-
-
-
                 <Container className="map-container">
-                    <Map />
+                    <Map cords={this.getCoordinates()}/>
                 </Container>
             </Container>
         )

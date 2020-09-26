@@ -6,7 +6,6 @@ import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome
 export default class TripBox extends Component {
     constructor(props) {
         super(props);
-        console.log(props)
         this.trip = props.trip;
     }
     renderDestinations() {

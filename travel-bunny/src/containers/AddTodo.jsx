@@ -26,9 +26,6 @@ export default class AddTodo extends Component {
       currency: this.state.currency,
       locale: this.state.locale
   })
-  //https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?windowStart=2020-09-24&windowEnd=2020-10-15&initialLocation=Copenhagen&stayLength=20&country=DK&currency=CNY&locale=en-US
-  //https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?windowStart=2020-09-24&windowEnd=2020-11-15&initialLocation=Copenhagen&stayLength=20&country=DK&currency=EUR&locale=en-US
-  console.log("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
     fetch("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
       .then(response => response.json())
       .then(response => {

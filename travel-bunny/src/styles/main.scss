@@ -180,7 +180,7 @@ button[type=submit] {
 .trip-page-container {
   display: flex;
   max-width: 100%;
-  margin: 0;
+  margin: 50px 0 0 0;
   .map-container {
     max-width: 50%;
   }
@@ -252,10 +252,10 @@ button[type=submit] {
     width: 100%;
   }
   .flight-section-img {
-    max-width: 30%;
+    max-width: 35%;
   }
   .flight-section-info {
-    max-width: 70%;
+    max-width: 65%;
     padding: 10px 5px 10px 5px;
     display: flex;
     flex-direction: column;
