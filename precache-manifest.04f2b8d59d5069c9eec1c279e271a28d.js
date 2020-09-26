@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9712cd17bd22d54c49b24b19c85e84b6",
+    "revision": "ef312338ba313ca13707a183d5271faa",
     "url": "/Travelbunny-Web/index.html"
   },
   {
-    "revision": "73be481984feef3167ae",
+    "revision": "cf70e22f2fa3d6be5a58",
     "url": "/Travelbunny-Web/static/css/main.24c097a7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Travelbunny-Web/static/js/2.2155e789.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "73be481984feef3167ae",
-    "url": "/Travelbunny-Web/static/js/main.43702e61.chunk.js"
+    "revision": "cf70e22f2fa3d6be5a58",
+    "url": "/Travelbunny-Web/static/js/main.fcd70569.chunk.js"
   },
   {
     "revision": "a6415a843c6427b5196b",
