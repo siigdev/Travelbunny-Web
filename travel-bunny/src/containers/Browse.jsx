@@ -21,6 +21,12 @@ export default class Browse extends Component {
     componentDidMount() {
 
     }
+    viewTrip(trip) {
+        this.props.history.push({
+            pathname: '/Trip',
+            res: trip,
+          })
+    }
     renderTrips() {
         if(this.trips === undefined)
             return (
@@ -30,8 +36,10 @@ export default class Browse extends Component {
             )
         return this.trips.map((trip) => {
             return (
-                <TripBox key={trip.id} trip={trip}/>
-            )
+                <div onClick={ () => this.viewTrip(trip)}>
+                    <TripBox key={trip.id} trip={trip}   />
+                </div>
+            );
         })
     }
     render() {

@@ -108,45 +108,52 @@ button[type=submit] {
 .inline-block {
   display: inline-block;
 }
+
+.sort-box {
+  display: inline-block;
+  padding-left: 0px;
+  border-bottom: 1px solid lightgrey;
+  height: 45px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  a {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: $grey;
+    position: relative;
+    margin: 10px 0px 0px 0px;
+    display: inline-block;
+    padding: 0px 20px 10px 10px;
+  }
+
+  a::after {
+    content: "";
+    background: $primary;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: .16s all 0.025s;
+  }
+  
+  a::after {
+    left: 100%;
+    right: 0;
+  }
+  
+  a:hover ~ a::after {
+    left: 0;
+    right: 100%;
+  }
+  
+  a:hover::after, .active-link::after {
+    left: 0;
+    right: 0;
+  }
+}
+
 .browse-container {
   max-width: 1200px;
   margin-top: 50px;
-  .sort-box {
-    display: inline-block;
-    a {
-      font-family: sans-serif;
-      text-decoration: none;
-      color: $grey;
-      position: relative;
-      margin: 10px 0;
-      display: inline-block;
-      padding: 0px 10px 10px;
-    }
-  
-    a::after {
-      content: "";
-      background: $primary;
-      height: 2px;
-      position: absolute;
-      bottom: 0;
-      transition: .16s all 0.025s;
-    }
-    
-    a::after {
-      left: 100%;
-      right: 0;
-    }
-    
-    a:hover ~ a::after {
-      left: 0;
-      right: 100%;
-    }
-    
-    a:hover::after {
-      left: 0;
-      right: 0;
-    }
-  }
   .search-settings {
     max-width: 300px;
     background-color: #f9f9f9;
@@ -170,6 +177,17 @@ button[type=submit] {
     }
   }
 }
+.trip-page-container {
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+  .map-container {
+    max-width: 50%;
+  }
+  .trip-description-container {
+    max-width: 50%;
+  }
+}
 .trip-container {
   background-color: white;
   border: 1px solid lightgrey;
@@ -177,6 +195,7 @@ button[type=submit] {
   padding: 0px;
   margin: 20px auto 20px auto;
   width: 900px;
+  z-index: 1000;
   .svg-inline--fa{
     color: grey;
   }
@@ -220,4 +239,48 @@ button[type=submit] {
   span {
     color: grey;
   }
+}
+
+.flight-box {
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 0px;
+  margin: 20px auto 20px auto;
+  max-width: 100%;
+  img {
+    width: 100%;
+  }
+  .flight-section-img {
+    max-width: 30%;
+  }
+  .flight-section-info {
+    max-width: 70%;
+    padding: 10px 5px 10px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    .flight-company-icon {
+      border-radius: 50%;
+      width: 15px;
+    }
+    .luggage-info {
+      color: lightgray;
+      .col {
+        min-width: 85px;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+}
+.center-row {
+    justify-content: center;
+    text-align: center;
+    .col {
+      flex-grow: 0;
+    }
 }
