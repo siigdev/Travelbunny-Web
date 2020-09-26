@@ -14,8 +14,9 @@ function App() {
         <Navigation />
           <Switch>
             <Route path="/" exact component={AddTodo}/>
-            <Route path="/Browse" component={Browse}/>
-            <Route path="/Trip" component={Trip}/>
+            <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
+            {/* <Route path="/Trip" component={Trip}/> */}
+            <Route path="/Trip/:id" component={Trip}/>
           </Switch>
         <Footer />
       </div>

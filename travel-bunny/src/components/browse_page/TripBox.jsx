@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, Row, Col, Image, Badge, Button } from 'react-bootstrap';
+import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,10 +28,10 @@ export default class TripBox extends Component {
     }
     getPictureUrl(size) {
         let url = '';
-        if (size == 'sm') {
+        if (size === 'sm') {
             url = `${this.trip.locations[0].picture}188160.png`
         }
-        else if (size == 'lg') {
+        else if (size === 'lg') {
             url = `${this.trip.locations[0].picture}375160.png`
         }
         return url

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Card, Row, Col, Image, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Image, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlane, faLuggageCart, faSuitcaseRolling, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import image from '../../assets/images/testimage.png'
@@ -13,10 +13,10 @@ export default class FlightBox extends Component {
 
     getPictureUrl(size) {
         let url = '';
-        if (size == 'sm') {
+        if (size === 'sm') {
             url = `${this.trip.locations[0].picture}188160.png`
         }
-        else if (size == 'lg') {
+        else if (size === 'lg') {
             url = `${this.trip.locations[0].picture}375160.png`
         }
         return url

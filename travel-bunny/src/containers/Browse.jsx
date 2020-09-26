@@ -11,33 +11,51 @@ import { faCalendar, faSortAmountUp, faSortAmountDown, faSortNumericUp, faSearch
 export default class Browse extends Component {
     constructor(props) {
         super(props);
-        if (props.location.res !== undefined)
-            this.trips = props.location.res.trips;
+        this.match = props.match.params;
         this.state = {
-            loading: false,
+            error: '',
+            trips: [],
+            loading: true,
             price: 975
         }
     }
     componentDidMount() {
 
+
+var params = new URLSearchParams({windowStart: this.match.start,
+            windowEnd: this.match.end,
+            initialLocation: this.match.location,
+            stayLength: this.match.length,
+            country: this.match.country,
+            currency: 'CNY',
+            locale: 'en-US'
+          })
+        fetch("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ loading: false, trips: response.trips})
+            })
+            .catch((error) => {
+                this.setState({ loading: false, error: error })
+            });
     }
     viewTrip(trip) {
         this.props.history.push({
-            pathname: '/Trip',
+            pathname: '/Trip/' + trip.id,
             res: trip,
           })
     }
     renderTrips() {
-        if(this.trips === undefined)
+        if(!this.state.loading && !this.state.trips.length)
             return (
             <Alert variant='danger'>
                 Error! We could not find any travel packages matching your search parameters. Please try again.
             </Alert>
             )
-        return this.trips.map((trip) => {
+        return this.state.trips.map((trip) => {
             return (
-                <div onClick={ () => this.viewTrip(trip)}>
-                    <TripBox key={trip.id} trip={trip}   />
+                <div onClick={ () => this.viewTrip(trip)} key={trip.id} >
+                    <TripBox trip={trip}   />
                 </div>
             );
         })
@@ -54,10 +72,10 @@ export default class Browse extends Component {
                 <Row>
                     <Col>
                         <Container className="sort-box">
-                            <a href="#"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</a>
-                            <a href="#"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</a>
-                            <a href="#"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</a>
-                            <a href="#"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</a>
+                            <a href="/"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</a>
+                            <a href="/"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</a>
+                            <a href="/"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</a>
+                            <a href="/"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</a>
                         </Container>
                         {this.renderTrips()}
                     </Col>
@@ -67,19 +85,19 @@ export default class Browse extends Component {
                             test
                         </Form.Label>
                         <InputGroup className="mb-2">
-                            <FormControl id="inlineFormInputGroup" placeholder="Trip ID" />
+                            <FormControl id="search-trip-id" placeholder="Trip ID" />
                                 <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faSearch} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
                         </InputGroup>
                         <InputGroup className="mb-2">
-                            <FormControl id="inlineFormInputGroup" placeholder="Destination" />
+                            <FormControl id="search-destination" placeholder="Destination" />
                                 <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faGlobe} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
                         </InputGroup>
                         <InputGroup className="mb-2">
-                            <FormControl id="inlineFormInputGroup" placeholder="Date" />
+                            <FormControl id="search-date" placeholder="Date" />
                                 <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faCalendar} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
@@ -90,7 +108,7 @@ export default class Browse extends Component {
                             <Form.Control type="range" defaultValue={this.state.price} max="10000" onChange={e => this.setState({price: e.target.value})}/>
                         </Form.Group>
                         <InputGroup className="mb-2">
-                            <FormControl id="inlineFormInputGroup" placeholder={this.state.price} />
+                            <FormControl id="search-price" placeholder={this.state.price} />
                                 <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faDollarSign} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
