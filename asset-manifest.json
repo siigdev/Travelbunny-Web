@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Travelbunny-Web/static/css/main.24c097a7.chunk.css",
+    "main.js": "/Travelbunny-Web/static/js/main.43702e61.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.43702e61.chunk.js.map",
+    "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.67385aae.js",
+    "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.67385aae.js.map",
+    "static/js/2.2155e789.chunk.js": "/Travelbunny-Web/static/js/2.2155e789.chunk.js",
+    "static/js/2.2155e789.chunk.js.map": "/Travelbunny-Web/static/js/2.2155e789.chunk.js.map",
+    "index.html": "/Travelbunny-Web/index.html",
+    "precache-manifest.f05e79307c616bab03f6b134a59dac9f.js": "/Travelbunny-Web/precache-manifest.f05e79307c616bab03f6b134a59dac9f.js",
+    "service-worker.js": "/Travelbunny-Web/service-worker.js",
+    "static/css/main.24c097a7.chunk.css.map": "/Travelbunny-Web/static/css/main.24c097a7.chunk.css.map",
+    "static/js/2.2155e789.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.2155e789.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/Travelbunny-Web/static/media/header-background.6c332bfe.jpg",
+    "static/media/testimage.png": "/Travelbunny-Web/static/media/testimage.72a981e0.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.67385aae.js",
+    "static/js/2.2155e789.chunk.js",
+    "static/css/main.24c097a7.chunk.css",
+    "static/js/main.43702e61.chunk.js"
+  ]
+}
