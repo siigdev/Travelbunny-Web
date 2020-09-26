@@ -10,9 +10,7 @@ function Navigation() {
                 <Nav className="mr-auto">
                 </Nav>
                 <Nav>
-                    <Link to='/' className="nav-link"><li>Front</li></Link>
-                    <Link to='/Browse' className="nav-link"><li>Browse</li></Link>
-                    <Link to='/Trip' className="nav-link"><li>Trip</li></Link>
+                    <Link to='/Login' className="nav-link"><li>Login</li></Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

@@ -5,11 +5,12 @@ import Footer from '../components/global/Footer'
 import Navigation from '../components/global/Navigation'
 import Browse from '../containers/Browse'
 import Trip from '../containers/Trip'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import NotFound from '../containers/NotFound'
+import {BrowserRouter as Router, Switch, Route, HashRouter} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename='/'>
       <div className="App">
         <Navigation />
           <Switch>
@@ -17,10 +18,11 @@ function App() {
             <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
             {/* <Route path="/Trip" component={Trip}/> */}
             <Route path="/Trip/:id" component={Trip}/>
+            <Route component={NotFound}/>
           </Switch>
         <Footer />
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
