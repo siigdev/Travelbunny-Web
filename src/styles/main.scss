@@ -24,6 +24,18 @@ footer {
   margin: 0 auto;
   color: #bdbdbd;
   box-sizing: border-box;
+  padding-top: 25px;
+  background-color: #3e4551 !important;
+  margin-top: 20px;
+  .footer-copyright {
+    max-width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    text-align: center;
+    padding-top: 15px;
+  }
+}
+.font-small {
+  font-size: .9rem;
 }
 nav {
   display: flex;
@@ -108,7 +120,9 @@ button[type=submit] {
 .inline-block {
   display: inline-block;
 }
-
+.uppercase {
+  text-transform: uppercase;
+}
 .sort-box {
   display: inline-block;
   padding-left: 0px;
