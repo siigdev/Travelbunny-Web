@@ -1,24 +1,29 @@
 {
   "files": {
-    "main.css": "/Travelbunny-Web/static/css/main.25817148.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.e03c6aee.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.e03c6aee.chunk.js.map",
+    "main.css": "/Travelbunny-Web/static/css/main.c82d7e0f.chunk.css",
+    "main.js": "/Travelbunny-Web/static/js/main.a3da3517.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.a3da3517.chunk.js.map",
     "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.67385aae.js",
     "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.67385aae.js.map",
-    "static/js/2.13d96c56.chunk.js": "/Travelbunny-Web/static/js/2.13d96c56.chunk.js",
-    "static/js/2.13d96c56.chunk.js.map": "/Travelbunny-Web/static/js/2.13d96c56.chunk.js.map",
+    "static/js/2.51f68356.chunk.js": "/Travelbunny-Web/static/js/2.51f68356.chunk.js",
+    "static/js/2.51f68356.chunk.js.map": "/Travelbunny-Web/static/js/2.51f68356.chunk.js.map",
     "index.html": "/Travelbunny-Web/index.html",
-    "precache-manifest.4458ec20ac9f6daf3fcdabc3b9301d67.js": "/Travelbunny-Web/precache-manifest.4458ec20ac9f6daf3fcdabc3b9301d67.js",
+    "precache-manifest.6776e78277c9af51b7ffacc96f809c57.js": "/Travelbunny-Web/precache-manifest.6776e78277c9af51b7ffacc96f809c57.js",
     "service-worker.js": "/Travelbunny-Web/service-worker.js",
-    "static/css/main.25817148.chunk.css.map": "/Travelbunny-Web/static/css/main.25817148.chunk.css.map",
-    "static/js/2.13d96c56.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.13d96c56.chunk.js.LICENSE.txt",
+    "static/css/main.c82d7e0f.chunk.css.map": "/Travelbunny-Web/static/css/main.c82d7e0f.chunk.css.map",
+    "static/js/2.51f68356.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.51f68356.chunk.js.LICENSE.txt",
+    "static/media/1.png": "/Travelbunny-Web/static/media/1.cf26aad6.png",
+    "static/media/2.png": "/Travelbunny-Web/static/media/2.61a00614.png",
+    "static/media/3.png": "/Travelbunny-Web/static/media/3.a7708f89.png",
+    "static/media/4.png": "/Travelbunny-Web/static/media/4.ada89c46.png",
+    "static/media/5.png": "/Travelbunny-Web/static/media/5.7188d9df.png",
     "static/media/main.scss": "/Travelbunny-Web/static/media/header-background.6c332bfe.jpg",
     "static/media/testimage.png": "/Travelbunny-Web/static/media/testimage.72a981e0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.67385aae.js",
-    "static/js/2.13d96c56.chunk.js",
-    "static/css/main.25817148.chunk.css",
-    "static/js/main.e03c6aee.chunk.js"
+    "static/js/2.51f68356.chunk.js",
+    "static/css/main.c82d7e0f.chunk.css",
+    "static/js/main.a3da3517.chunk.js"
   ]
 }
