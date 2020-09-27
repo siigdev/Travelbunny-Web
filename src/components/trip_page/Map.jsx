@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../../components/trip_page/MapStyle'
- 
+import Marker from '../../components/trip_page/Marker'
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
- 
+
 class Map extends Component {
   constructor(props) {
     super(props);
-    if (props.cords !== undefined){
-        this.cords = props.cords;
-        this.cords.push({lat: 55.386624, lng: 10.398257})
+    if (props.cords !== undefined) {
+      this.cords = props.cords;
+      this.cords.unshift({ lat: 55.386624, lng: 10.398257 })
     }
   }
   static defaultProps = {
@@ -19,29 +20,38 @@ class Map extends Component {
     },
     zoom: 1
   };
+  // Set flight path lines
   handleGoogleMapApi = (google) => {
     const lineSymbol = {
-        path: "M 0,-1 0,1",
-        strokeOpacity: 1,
-        scale: 3,
-      };
+      path: "M 0,-1 0,1",
+      strokeOpacity: 1,
+      scale: 3,
+    };
     var flightPath = new google.maps.Polyline({
-        path: this.cords,
-          strokeOpacity: 0,
-          strokeColor: "#e83f53",
-          geodesic: true,
-          icons: [
-            {
-              icon: lineSymbol,
-              offset: "0",
-              repeat: "20px",
-            },
-          ],
+      path: this.cords,
+      strokeOpacity: 0,
+      strokeColor: "#e83f53",
+      geodesic: true,
+      icons: [
+        {
+          icon: lineSymbol,
+          offset: "0",
+          repeat: "20px",
+        },
+      ],
     });
 
     flightPath.setMap(google.map);
   }
 
+  renderMarkers() {
+    return (
+      <Marker
+      lat={55.386624}
+      lng={10.398257}
+      />
+    )
+  }
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -53,11 +63,7 @@ class Map extends Component {
           defaultZoom={this.props.zoom}
           options={mapOptions}
         >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
+          {this.renderMarkers()}
         </GoogleMapReact>
       </div>
     );
@@ -65,11 +71,11 @@ class Map extends Component {
 }
 
 const mapOptions = {
-    styles: MapStyle // straight out of something like snazzymaps
+  styles: MapStyle // straight out of something like snazzymaps
 };
 
 
- 
+
 export default Map;
 
 

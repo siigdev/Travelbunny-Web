@@ -16,7 +16,6 @@ function App() {
           <Switch>
             <Route path="/" exact component={Main}/>
             <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
-            {/* <Route path="/Trip" component={Trip}/> */}
             <Route path="/Trip/:id" component={Trip}/>
             <Route component={NotFound}/>
           </Switch>

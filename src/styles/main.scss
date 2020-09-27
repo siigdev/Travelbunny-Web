@@ -2,6 +2,10 @@ $primary: #e83f53;
 $grey: #545454;
 
 @import "custom-bootstrap";
+@import "/slick/slick.css"; 
+@import "/slick/slick-theme.css";
+
+
 body {
   background-color: #FFF;
   margin: 0;
@@ -26,7 +30,6 @@ footer {
   box-sizing: border-box;
   padding-top: 25px;
   background-color: #3e4551 !important;
-  margin-top: 20px;
   .footer-copyright {
     max-width: 100%;
     background-color: rgba(0,0,0,0.2);
@@ -167,7 +170,7 @@ button[type=submit] {
 
 .browse-container {
   max-width: 1200px;
-  margin-top: 50px;
+  margin: 50px auto 50px auto;
   .search-settings {
     max-width: 300px;
     background-color: #f9f9f9;
@@ -297,4 +300,17 @@ button[type=submit] {
     .col {
       flex-grow: 0;
     }
+}
+
+.popular-destinations{
+  padding: 50px;
+}
+.popular-destinations-slider {
+  padding: 0px;
+  img {
+    max-width: 100%;
+  }
+  .slick-slide {
+    padding: 10px;
+  }
 }
