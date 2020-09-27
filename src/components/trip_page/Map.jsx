@@ -3,8 +3,6 @@ import GoogleMapReact from 'google-map-react';
 import MapStyle from '../../components/trip_page/MapStyle'
 import Marker from '../../components/trip_page/Marker'
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 class Map extends Component {
   constructor(props) {
     super(props);

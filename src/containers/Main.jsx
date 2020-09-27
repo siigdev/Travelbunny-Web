@@ -5,9 +5,6 @@ import SearchBox from '../components/landing_page/SearchBox';
 import PopularDestinations from '../components/landing_page/PopularDestinations';
 
 export default class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <>

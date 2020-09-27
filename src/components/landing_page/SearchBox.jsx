@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line
+import { withRouter} from 'react-router-dom';
 import { InputGroup, Button, Container, Col, Form } from 'react-bootstrap';
 
 
-export default class SearchBox extends Component {
+class SearchBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -83,3 +84,5 @@ export default class SearchBox extends Component {
         )
     }
 }
+
+export default withRouter(SearchBox)

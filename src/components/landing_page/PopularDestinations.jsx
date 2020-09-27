@@ -13,10 +13,6 @@ import five from '../../assets/images/destination_images/5.png';
 
 
 export default class PopularDestinations extends Component {
-    constructor(props) {
-        super(props);
-
-    }
     render() {
         const settings = {
             dots: true,

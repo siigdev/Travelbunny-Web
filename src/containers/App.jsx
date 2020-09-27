@@ -6,7 +6,7 @@ import Navigation from '../components/global/Navigation'
 import Browse from '../containers/Browse'
 import Trip from '../containers/Trip'
 import NotFound from '../containers/NotFound'
-import {BrowserRouter as Router, Switch, Route, HashRouter} from 'react-router-dom';
+import {Switch, Route, HashRouter} from 'react-router-dom';
 
 function App() {
   return (
