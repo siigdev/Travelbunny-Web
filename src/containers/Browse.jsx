@@ -26,10 +26,10 @@ export default class Browse extends Component {
             initialLocation: this.match.location,
             stayLength: this.match.length,
             country: this.match.country,
-            currency: 'CNY',
+            currency: 'DKK',
             locale: 'en-US'
         })
-        fetch("https://18xxfn4v22.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
+        fetch("https://183my5kbhd.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
             .then(response => response.json())
             .then(response => {
                 this.setState({ loading: false, trips: response.trips })
@@ -45,7 +45,7 @@ export default class Browse extends Component {
         })
     }
     renderTrips() {
-        if (!this.state.loading && this.state.trips === undefined)
+        if (!this.state.loading && (this.state.trips === undefined || !this.state.trips.length))
             return (
                 <Alert variant='danger'>
                     Error! We could not find any travel packages matching your search parameters. Please try again.
@@ -80,9 +80,6 @@ export default class Browse extends Component {
                     </Col>
 
                     <Col className="search-settings">
-                        <Form.Label htmlFor="inlineFormInputGroup" srOnly>
-                            test
-                        </Form.Label>
                         <InputGroup className="mb-2">
                             <FormControl id="search-trip-id" placeholder="Trip ID" />
                             <InputGroup.Append>

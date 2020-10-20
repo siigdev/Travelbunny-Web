@@ -2,6 +2,8 @@ $primary: #e83f53;
 $grey: #545454;
 
 @import "custom-bootstrap";
+@import "~react-datepicker/dist/react-datepicker.css";
+
 body {
   background-color: #FFF;
   margin: 0;

@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 function Navigation() {
     return (
         <Navbar variant="light" bg="light" sticky="top">
-            <Navbar.Brand href="/">Nordico</Navbar.Brand>
+            <Navbar.Brand><Link to='/'>Nordico</Link></Navbar.Brand>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                 </Nav>

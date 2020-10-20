@@ -11,7 +11,7 @@ export default class TripBox extends Component {
     renderDestinations() {
         return this.trip.locations.map((loc) => {
             return (
-                <p key={loc.id} className="inline-block">{loc.locationName} <FontAwesomeIcon icon={faChevronRight} size="xs" /></p>
+                <p key={loc.locationId} className="inline-block">{loc.destination} <FontAwesomeIcon icon={faChevronRight} size="xs" /></p>
             )
         });
     }
@@ -49,10 +49,10 @@ export default class TripBox extends Component {
                         <div>
                             <Badge pill variant="secondary">
                                 Family
-                        </Badge>
+                            </Badge>
                             <Badge pill variant="secondary">
                                 Attraction
-                        </Badge>
+                            </Badge>
                             <Badge pill variant="secondary">
                                 History
                         </Badge>
@@ -65,7 +65,7 @@ export default class TripBox extends Component {
                         </Container>
                         <Container>
                             <Container className="price-container">
-                                <h3 className="bold price-tag">$ {this.trip.price}</h3>
+                                <h3 className="bold price-tag">{this.trip.price} DKK</h3>
                                 <span>/Person</span>
                             </Container>
                             <Button variant="success">Purchase now</Button>
