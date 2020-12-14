@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Loading from '../components/global/Loading'
 import Map from '../components/trip_page/Map'
 import FlightBox from '../components/trip_page/FlightBox'
+import HotelBox from '../components/trip_page/HotelBox'
 import { Container, Alert } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +16,11 @@ export default class Trip extends Component {
             this.propsDefined = true
         this.state = {
             loading: true,
+            active: 'flights',
+            hotels: this.props.location.res.Hotels
         }
+        this.handleFlights = this.handleFlights.bind(this, true);
+        this.handleHotels = this.handleHotels.bind(this, false);
     }
     componentDidMount() {
         fetch(`https://657vlr7156.execute-api.eu-central-1.amazonaws.com/Prod/?tripID=${this.match.params.id}`)
@@ -54,6 +59,33 @@ export default class Trip extends Component {
                 })
             )
     }
+
+    renderHotels() {
+        if (this.state.hotels === undefined) {
+            return (
+                <Alert variant='danger'>
+                    Error! We could not find any hotels matching your search criteria. Please try again.
+                </Alert>
+            )
+        }
+        else
+            return (
+                 this.state.hotels.map((hotel) => {
+                     return (
+                         <HotelBox key={hotel.hotels[0].hotel_id} hotel={hotel.hotels[0]}/>
+                     )
+                 })
+            )
+    }
+
+    handleFlights() {
+        this.setState({active: 'flights'})
+    }
+
+    handleHotels() {
+        this.setState({active: 'hotels'})
+    }
+    
     render() {
         if (this.state.loading) {
             return (
@@ -64,14 +96,20 @@ export default class Trip extends Component {
             <Container className="trip-page-container">
                 <Container className="trip-description-container">
                     <Container className="sort-box">
-                        <a href="/" className="active-link"><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</a>
-                        <a href="/"><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</a>
-                        <a href="/"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</a>
-                        <a href="/"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</a>
+                        <a href="javascript:void(0);" className={this.state.active === 'flights' ? 'active-link' : null} onClick={this.handleFlights}><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</a>
+                        <a href="javascript:void(0);" className={this.state.active === 'hotels' ? 'active-link' : null} onClick={this.handleHotels}><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</a>
+                        <a href="javascript:void(0);"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</a>
+                        <a href="javascript:void(0);"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</a>
                     </Container>
-                    <Container className="flight-container">
-                        {this.renderFlights()}
-                    </Container>
+                    {this.state.active === 'flights' ?
+                        <Container className="flight-container">
+                            {this.renderFlights()}
+                        </Container>
+                        :
+                        <Container className="flight-container">
+                            {this.renderHotels()}
+                        </Container>
+                    }
                 </Container>
                 <Container className="map-container">
                     <Map cords={this.getCoordinates()} />

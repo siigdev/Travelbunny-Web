@@ -164,7 +164,7 @@ button[type=submit] {
     left: 0;
     right: 0;
   }
-}
+} 
 
 .browse-container {
   max-width: 1200px;
@@ -220,24 +220,24 @@ button[type=submit] {
   .trip-section-info {
     padding: 10px 5px 10px 5px;
   }
-  .trip-section-buy {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgb(250, 250, 250);
-    padding: 10px 5px 10px 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-right: 15px;
-    button {
-      width: 100%;
-      display: table;
-      margin: 0 auto;
-    }
-  }
+  
   &:hover {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
+  }
+}
+.trip-section-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(250, 250, 250);
+  padding: 10px 5px 10px 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  button {
+    width: 100%;
+    display: table;
+    margin: 0 auto;
   }
 }
 .price-container {
@@ -255,7 +255,6 @@ button[type=submit] {
     color: grey;
   }
 }
-
 .flight-box {
   background-color: white;
   border: 1px solid lightgrey;
