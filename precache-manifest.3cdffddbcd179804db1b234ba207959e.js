@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa01ce567ee0c598400ef471404c0607",
+    "revision": "9ea6222883282776a0f9fb2dde8240da",
     "url": "/Travelbunny-Web/index.html"
   },
   {
-    "revision": "454104d361a61fc691eb",
+    "revision": "f657f929429409756af0",
     "url": "/Travelbunny-Web/static/css/2.ec1e243e.chunk.css"
   },
   {
-    "revision": "2021d3db7ca4bceb0f5f",
-    "url": "/Travelbunny-Web/static/css/main.0ffec3d4.chunk.css"
+    "revision": "6308d54564aefaddf253",
+    "url": "/Travelbunny-Web/static/css/main.623a6ff1.chunk.css"
   },
   {
-    "revision": "454104d361a61fc691eb",
-    "url": "/Travelbunny-Web/static/js/2.b50a4fe1.chunk.js"
+    "revision": "f657f929429409756af0",
+    "url": "/Travelbunny-Web/static/js/2.f0ce7d7d.chunk.js"
   },
   {
     "revision": "d2966845b94a3318bf32eecc7af8015d",
-    "url": "/Travelbunny-Web/static/js/2.b50a4fe1.chunk.js.LICENSE.txt"
+    "url": "/Travelbunny-Web/static/js/2.f0ce7d7d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2021d3db7ca4bceb0f5f",
-    "url": "/Travelbunny-Web/static/js/main.6c703c2a.chunk.js"
+    "revision": "6308d54564aefaddf253",
+    "url": "/Travelbunny-Web/static/js/main.e1a618a1.chunk.js"
   },
   {
     "revision": "a6415a843c6427b5196b",
