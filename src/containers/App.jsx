@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/main.scss';
 import Main from '../containers/Main'
 import Footer from '../containers/global/Footer'
-import Navigation from '../containers/global/Navigation'
+import Navigation from '../containers/global/navigation/Navigation'
 import Browse from '../containers/Browse'
 import Trip from '../containers/Trip'
 import NotFound from '../containers/NotFound'
