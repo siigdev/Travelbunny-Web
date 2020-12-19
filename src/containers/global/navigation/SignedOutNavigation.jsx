@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { signIn } from '../../../actions/authenticationActions/authenticationActions'
-
+import LoginModal from '../../../containers/modals/LoginModal';
 
 class SignedOutNavigation extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
-            email: 'test',
-            password: 'test123'
+            modalOpen: false
         }
     }
-    handleSubmit(){
-        console.log(this.state);
-        console.log(this.props)
-        this.props.signIn(this.state)
+    handleLoginModal = () => {
+        this.setState((prevState) => {
+           return{
+              modalOpen: !prevState.modalOpen
+           }
+        })
     }
     render() {
         return (
-            <Nav>
-                <NavItem className="nav-link" onClick={() => this.handleSubmit()}><li>Sign In</li></NavItem>
-            </Nav>
+            <>
+                <Nav>
+                    <NavItem className="nav-link" onClick={this.handleLoginModal}><li>Sign In</li></NavItem>
+                </Nav>
+                <LoginModal
+                    modalOpen={this.state.modalOpen}
+                    handleLoginModal={this.handleLoginModal}
+                />
+            </>
         )
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signIn: (credentials) => dispatch(signIn(credentials))
-    }
-}
-export default connect(null, mapDispatchToProps)(SignedOutNavigation)
+
+export default SignedOutNavigation

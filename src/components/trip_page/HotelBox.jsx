@@ -11,11 +11,9 @@ export default class HotelBox extends Component {
         this.state = {
             hotel: this.hotel
         }
-        console.log(props)
     }
 
     renderStars(count) {
-        console.log(count)
         let stars = [];
         for (let i = 0; i < count; i++) {
             stars.push(<FontAwesomeIcon icon={faStar} key={i} size="lg" style={{ color: '#ebc334' }} />)
