@@ -7,6 +7,9 @@ import SignedOutNavigation from './SignedOutNavigation'
 import { connect } from 'react-redux';
 
 class Navigation extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <Navbar variant="light" bg="light" sticky="top">
@@ -14,17 +17,15 @@ class Navigation extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                     </Nav>
-                    <SignedOutNavigation />
-                    <SignedInNavigation />
+                {this.props.auth ? <SignedInNavigation /> : <SignedOutNavigation />}
                 </Navbar.Collapse>
             </Navbar>
         )
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
-
+        auth: state.login.auth
     }
 }
 export default connect(mapStateToProps)(Navigation);

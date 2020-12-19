@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { signIn } from '../../../actions/loginActions/loginActions'
+import { signIn } from '../../../actions/authenticationActions/authenticationActions'
 
 
 class SignedOutNavigation extends Component {
