@@ -1,19 +1,26 @@
-import React, { Component } from 'react'
-import { Button, Modal, Form } from 'react-bootstrap';
+import React, { Component, useState } from 'react'
+import { Button, Modal, Form, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/authenticationActions/authenticationActions'
 
 class LoginModal extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             email: '',
             password: '',
-            modalOpen: true
+            modalOpen: true,
+            validated: false
         }
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
+    handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        this.setState({validated: true})
         this.props.signIn(this.state)
     }
     handleChange = (e) => {
@@ -29,26 +36,29 @@ class LoginModal extends Component {
                         <Modal.Title>Login</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    <Form>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleChange}/>
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+                        <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+                            <Form.Group controlId="email">
+                                <Form.Label>Email address</Form.Label>
+                                    <Form.Control required type="email" placeholder="Enter email" onChange={this.handleChange} />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please provide a valid email.
+                                    </Form.Control.Feedback>
+                            </Form.Group>
 
-                    <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={this.handleChange}/>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Keep me logged in" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit" onClick={this.handleSubmit}>
-                        Submit
-                    </Button>
-                    </Form>
+                            <Form.Group controlId="password">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control required type="password" placeholder="Password" onChange={this.handleChange} />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid password.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group controlId="formBasicCheckbox">
+                                <Form.Check type="checkbox" label="Keep me logged in" />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
                     </Modal.Body>
                 </Modal>
             </>
