@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome/free-solid-svg-icons";
-import { reserveTrip } from '../../actions/tripActions/tripActions'
+import { openAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
+import { saveTripToState } from '../../actions/tripActions/tripActions'
 
 class TripBox extends Component {
     constructor(props) {
@@ -39,7 +40,10 @@ class TripBox extends Component {
         return url
     }
     handleReserve = (e) => {
-        this.props.reserveTrip(this.trip)
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.saveTripToState(this.trip)
+        this.props.openAcceptReserveTripModal()
     }
     render() {
         return (
@@ -84,7 +88,8 @@ class TripBox extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        reserveTrip: (trip) => dispatch(reserveTrip(trip))
+        saveTripToState: (trip) => dispatch(saveTripToState(trip)),
+        openAcceptReserveTripModal: (trip) => dispatch(openAcceptReserveTripModal(trip))
     }
 }
 export default connect(null, mapDispatchToProps)(TripBox)

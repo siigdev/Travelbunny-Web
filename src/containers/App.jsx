@@ -7,18 +7,20 @@ import Browse from '../containers/Browse'
 import Trip from '../containers/Trip'
 import NotFound from '../containers/NotFound'
 import {Switch, Route, HashRouter} from 'react-router-dom';
+import AcceptReserveTripModal from '../containers/modals/AcceptReserveTripModal';
 
 function App() {
   return (
     <HashRouter basename='/'>
       <div className="App">
         <Navigation />
-          <Switch>
-            <Route path="/" exact component={Main}/>
-            <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
-            <Route path="/Trip/:id" component={Trip}/>
-            <Route component={NotFound}/>
-          </Switch>
+        <Switch>
+          <Route path="/" exact component={Main}/>
+          <Route path="/Browse/:start?/:end?/:location?/:length?/:country" component={Browse}/>
+          <Route path="/Trip/:id" component={Trip}/>
+          <Route component={NotFound}/>
+        </Switch>
+        <AcceptReserveTripModal />
         <Footer />
       </div>
     </HashRouter>

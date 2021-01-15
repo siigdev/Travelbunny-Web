@@ -15,11 +15,13 @@ class SignInModal extends Component {
     }
     handleSubmit = (e) => {
         const form = e.currentTarget;
+        e.preventDefault();
+        e.stopPropagation();
+        
         if (form.checkValidity() === false) {
             e.preventDefault();
             e.stopPropagation();
         }
-
         this.setState({validated: true})
         this.props.signIn(this.state)
     }
@@ -68,4 +70,9 @@ const mapDispatchToProps = (dispatch) => {
         signIn: (credentials) => dispatch(signIn(credentials))
     }
 }
-export default connect(null, mapDispatchToProps)(SignInModal)
+const mapStateToProps = (state) => {
+    return {
+        signedIn: state.auth.signedIn
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SignInModal)

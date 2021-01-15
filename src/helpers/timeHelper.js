@@ -16,7 +16,7 @@ export const convertSecondsToClock = (seconds, format) => {
             
         }
     } catch (e) {
-        console.log("Could not apply time conversion")
+        throw "Error: Could not apply time conversion";
     }
 }
 

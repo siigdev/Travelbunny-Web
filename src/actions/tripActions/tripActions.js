@@ -1,14 +1,33 @@
 import * as service from '../../services/tripService';
 
-export const reserveTrip = (tripObj) => {
-    return (dispatch, getState) => {
-        
+export const saveTripToState = (tripObj) => {
+    return (dispatch) => {
         try{
-            service.reserveTrip(
+            service.saveTripToState(
                 tripObj
             ).then((response) => {
                 if(response) {
-                    dispatch({type: "TRIP_RESERVED_SUCCESS", trip: response})
+                    dispatch({type: "SAVE_TRIP_TO_STATE", trip: response})    
+                }
+                else
+                    dispatch({type: "TRIP_SAVE_TO_STATE_ERROR"})
+            }).catch((error) => {
+                dispatch({type: "TRIP_SAVE_TO_STATE_ERROR", error})
+            })
+        } catch(error) {
+            dispatch({type: "TRIP_SAVE_TO_STATE_ERROR", error})
+        }
+    }
+}
+export const reserveTrip = () => {
+    return (dispatch, getState) => {
+        let { trip } = getState();
+        try{
+            service.reserveTrip(
+                trip
+            ).then((response) => {
+                if(response) {
+                    dispatch({type: "TRIP_RESERVED_SUCCESS"})
 
                     // Start the trip reserve counter with a dispatch timer
                     counterHandler(dispatch, getState);     
@@ -39,7 +58,6 @@ const counterHandler = (dispatch, getState) => {
 }
 
 export const cancelReserveTrip = () => {
-    console.log("cancelled")
     return (dispatch) => {
         dispatch({type: "TRIP_RESERVED_CANCEL"})
     }
