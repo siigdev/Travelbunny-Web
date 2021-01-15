@@ -29,7 +29,7 @@ const Footer = () => (
         <Col>
           <h6 className="uppercase">Contact</h6>
           <p><FontAwesomeIcon icon={faHome} size="1x" /> Campusvej 55, Odense M, DK</p>
-          <p><FontAwesomeIcon icon={faEnvelope} size="1x" /> info@nordico.ai</p>
+          <p><FontAwesomeIcon icon={faEnvelope} size="1x" /> info@nordico.tech</p>
           <p><FontAwesomeIcon icon={faPhone} size="1x" /> +45 1234 5678</p>
           <p><FontAwesomeIcon icon={faStamp} size="1x" /> CVR 10961211</p>
         </Col>
@@ -39,8 +39,8 @@ const Footer = () => (
       <Row>
         <Col>
           <p>© 2020 Copyright:
-            <a href="https://nordico.ai/">
-              <strong> Nordico.ai</strong>
+            <a href="https://nordico.tech/">
+              <strong> Nordico.tech</strong>
             </a>
           </p>
         </Col>
