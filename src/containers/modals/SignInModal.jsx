@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react'
-import { Button, Modal, Form, InputGroup } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { Button, Modal, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/authenticationActions/authenticationActions'
 
-class LoginModal extends Component {
+class SignInModal extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,11 +13,11 @@ class LoginModal extends Component {
             validated: false
         }
     }
-    handleSubmit = (event) => {
-        const form = event.currentTarget;
+    handleSubmit = (e) => {
+        const form = e.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
         }
 
         this.setState({validated: true})
@@ -31,9 +31,9 @@ class LoginModal extends Component {
     render() {
         return (
             <>
-                <Modal show={this.props.modalOpen} onHide={this.props.handleLoginModal}>
+                <Modal show={this.props.modalOpen} onHide={this.props.handleSignInModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Login</Modal.Title>
+                        <Modal.Title>Sign In</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
@@ -52,9 +52,6 @@ class LoginModal extends Component {
                                     Please provide a valid password.
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Keep me logged in" />
-                            </Form.Group>
                             <Button variant="primary" type="submit">
                                 Submit
                             </Button>
@@ -71,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
         signIn: (credentials) => dispatch(signIn(credentials))
     }
 }
-export default connect(null, mapDispatchToProps)(LoginModal)
+export default connect(null, mapDispatchToProps)(SignInModal)

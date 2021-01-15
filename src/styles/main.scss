@@ -13,7 +13,14 @@ body {
 }
 .loading-container {
   width: 100%;
-  text-align: center;
+  min-height: 350px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
   .spinner-border {
     height: 50px;
     width: 50px;
@@ -38,27 +45,34 @@ footer {
 .font-small {
   font-size: .9rem;
 }
+
+.navbar {
+  padding: 0px 10px 0px 10px;
+  margin: 0;
+  height: 5vh;
+  min-height: 5vh;
+}
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 5vh;
   background-color: lightblue;
   color: white;
 }
-.nav-links {
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  .nav-link {
-    text-decoration: none !important;
-    color: white;
-    &:hover {
-      font-weight: bold;
-    }
+.nav-link {
+  text-decoration: none !important;
+  color: white;
+  &:hover {
+    font-weight: bold;
   }
+}
+.purchase-nav-item {
+  color: white !important;
+  background-color: $primary;
+  text-align: center;
+  padding: 1px;
+  width: 100px;
+  line-height: 5vh;
 }
 .App {
   width: 100%;

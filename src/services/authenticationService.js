@@ -1,5 +1,5 @@
 export const signInWithEmailAndPassword = (email, password) => {
-    if(email === "test" && password === "test123")
+    if(email === "test@test.dk" && password === "test123")
         return Promise.resolve(true)
     return Promise.resolve(false)
 }

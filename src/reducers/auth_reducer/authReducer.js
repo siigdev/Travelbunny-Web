@@ -1,9 +1,9 @@
 const initState = {
     authError: null,
-    auth: false
+    signedIn: false
 }
 
-const loginReducer = (state = initState, action) => {
+const authReducer = (state = initState, action) => {
     switch(action.type) {
         case 'SIGN_UP_SUCCESS':
             return {
@@ -18,7 +18,7 @@ const loginReducer = (state = initState, action) => {
         case 'SIGN_IN_SUCCESS':
             return {
                 ...state,
-                auth: true,
+                signedIn: true,
                 authError: null
             };
         case 'SIGN_IN_ERROR':
@@ -29,11 +29,11 @@ const loginReducer = (state = initState, action) => {
         case 'SIGN_OUT_SUCCESS':
             return {
                 ...state,
-                auth: false,
+                signedIn: false,
             }
         default:
             return state
     }
 }
 
-export default loginReducer;
+export default authReducer;

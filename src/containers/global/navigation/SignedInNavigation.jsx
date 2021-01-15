@@ -6,9 +6,6 @@ import { signOut } from '../../../actions/authenticationActions/authenticationAc
 
 
 class SignedInNavigation extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <Nav>

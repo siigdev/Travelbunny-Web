@@ -10,7 +10,7 @@
 $slick-font-path: "/fonts/" !default;
 $slick-font-family: "slick" !default;
 $slick-loader-path: "./" !default;
-$slick-arrow-color: grey !default;
+$slick-arrow-color: white !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
 $slick-prev-character: "\2039" !default;
@@ -75,7 +75,7 @@ $slick-opacity-not-active: 0.25 !default;
     height: 44px;
     z-index: 1;
     border-radius: 100%;
-    background: rgb(255, 255, 255);
+    background: #e83f53;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
     &.slick-disabled:before {
         display: none;

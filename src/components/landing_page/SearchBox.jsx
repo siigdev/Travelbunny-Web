@@ -13,7 +13,7 @@ class SearchBox extends Component {
             endDate: null,
             city: 'Copenhagen',
             country: 'DK',
-            stayLength: 10,
+            stayLength: 14,
             locale: 'en-US',
             currency: 'CNY'
         }

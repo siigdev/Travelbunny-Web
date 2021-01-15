@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import { reserveTrip } from '../../actions/tripActions/tripActions'
 
-export default class TripBox extends Component {
+class TripBox extends Component {
     constructor(props) {
         super(props);
         this.trip = props.trip;
     }
-    renderDestinations() {
+    renderDestinations = () => {
         return this.trip.locations.map((loc) => {
             return (
                 <p key={loc.locationId} className="inline-block">{loc.destination} <FontAwesomeIcon icon={faChevronRight} size="xs" /></p>
@@ -16,17 +18,17 @@ export default class TripBox extends Component {
         });
     }
 
-    getTotalStayLength() {
+    getTotalStayLength = () => {
         return (
             this.trip.locations.reduce((sum, b) => sum + b.stayLength, 0)
         )
     }
-    getAmountOfCities() {
+    getAmountOfCities = () => {
         return (
             this.trip.locations.length
         )
     }
-    getPictureUrl(size) {
+    getPictureUrl = (size) => {
         let url = '';
         if (size === 'sm') {
             url = `${this.trip.locations[0].picture}188160.png`
@@ -35,6 +37,9 @@ export default class TripBox extends Component {
             url = `${this.trip.locations[0].picture}375160.png`
         }
         return url
+    }
+    handleReserve = (e) => {
+        this.props.reserveTrip(this.trip)
     }
     render() {
         return (
@@ -68,7 +73,7 @@ export default class TripBox extends Component {
                                 <h3 className="bold price-tag">{this.trip.price} DKK</h3>
                                 <span>/Person</span>
                             </Container>
-                            <Button variant="success">Purchase now</Button>
+                            <Button variant="success" onClick={this.handleReserve}>View trip</Button>
                         </Container>
                     </Col>
                 </Row>
@@ -76,3 +81,10 @@ export default class TripBox extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        reserveTrip: (trip) => dispatch(reserveTrip(trip))
+    }
+}
+export default connect(null, mapDispatchToProps)(TripBox)

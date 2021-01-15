@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
-import LoginModal from '../../../containers/modals/LoginModal';
+import SignInModal from '../../../containers/modals/SignInModal';
 
 class SignedOutNavigation extends Component {
     constructor(props){
@@ -9,7 +9,7 @@ class SignedOutNavigation extends Component {
             modalOpen: false
         }
     }
-    handleLoginModal = () => {
+    handleSignInModal = () => {
         this.setState((prevState) => {
            return{
               modalOpen: !prevState.modalOpen
@@ -20,11 +20,11 @@ class SignedOutNavigation extends Component {
         return (
             <>
                 <Nav>
-                    <NavItem className="nav-link" onClick={this.handleLoginModal}><li>Sign In</li></NavItem>
+                    <NavItem className="nav-link" onClick={this.handleSignInModal}><li>Sign In</li></NavItem>
                 </Nav>
-                <LoginModal
+                <SignInModal
                     modalOpen={this.state.modalOpen}
-                    handleLoginModal={this.handleLoginModal}
+                    handleSignInModal={this.handleSignInModal}
                 />
             </>
         )

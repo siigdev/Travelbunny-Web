@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import LoginModal from '../../../containers/modals/LoginModal';
 import SignedInNavigation from './SignedInNavigation';
 import SignedOutNavigation from './SignedOutNavigation'
+import * as timeHelper from '../../../helpers/timeHelper'
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <Navbar variant="light" bg="light" sticky="top">
@@ -17,7 +16,12 @@ class Navigation extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                     </Nav>
-                {this.props.auth ? <SignedInNavigation /> : <SignedOutNavigation />}
+                {this.props.signedIn ? <SignedInNavigation /> : <SignedOutNavigation />}
+                <Nav>
+                    <NavItem className="nav-link purchase-nav-item">
+                        <li>{timeHelper.convertSecondsToClock(this.props.counter)} <FontAwesomeIcon icon={faShoppingCart} size="xs" /></li>
+                    </NavItem>
+                </Nav>
                 </Navbar.Collapse>
             </Navbar>
         )
@@ -25,12 +29,9 @@ class Navigation extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        auth: state.login.auth
+        signedIn: state.auth.signedIn,
+        reservedTime: state.trip.reservedTime,
+        counter: state.trip.timer.counter
     }
 }
 export default connect(mapStateToProps)(Navigation);
-
-//<LoginModal
-//modalOpen={this.state.modalOpen}
-//handleLoginModal={this.handleLoginModal}
-///>
