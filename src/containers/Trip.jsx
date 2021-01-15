@@ -96,10 +96,10 @@ export default class Trip extends Component {
             <Container className="trip-page-container">
                 <Container className="trip-description-container">
                     <Container className="sort-box">
-                        <a href="javascript:void(0);" className={this.state.active === 'flights' ? 'active-link' : null} onClick={this.handleFlights}><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</a>
-                        <a href="javascript:void(0);" className={this.state.active === 'hotels' ? 'active-link' : null} onClick={this.handleHotels}><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</a>
-                        <a href="javascript:void(0);"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</a>
-                        <a href="javascript:void(0);"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</a>
+                        <a href="!#" className={this.state.active === 'flights' ? 'active-link' : null} onClick={this.handleFlights}><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</a>
+                        <a href="!#" className={this.state.active === 'hotels' ? 'active-link' : null} onClick={this.handleHotels}><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</a>
+                        <a href="!#"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</a>
+                        <a href="!#"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</a>
                     </Container>
                     {this.state.active === 'flights' ?
                         <Container className="flight-container">

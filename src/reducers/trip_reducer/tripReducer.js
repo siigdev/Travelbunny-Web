@@ -4,7 +4,7 @@ const initState = {
     timer: {
         reservedTime: null,
         started: false,
-        counter: 0
+        counter: 60*30
     }
 }
 

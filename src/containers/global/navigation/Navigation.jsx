@@ -19,7 +19,7 @@ class Navigation extends Component {
                 {this.props.signedIn ? <SignedInNavigation /> : <SignedOutNavigation />}
                 <Nav>
                     <NavItem className="nav-link purchase-nav-item">
-                        <li>{timeHelper.convertSecondsToClock(this.props.counter)} <FontAwesomeIcon icon={faShoppingCart} size="xs" /></li>
+                        <li>{timeHelper.convertSecondsToClock(this.props.counter, 'MMSS')} <FontAwesomeIcon icon={faShoppingCart} size="xs" /></li>
                     </NavItem>
                 </Nav>
                 </Navbar.Collapse>
@@ -34,4 +34,5 @@ const mapStateToProps = (state) => {
         counter: state.trip.timer.counter
     }
 }
+
 export default connect(mapStateToProps)(Navigation);
