@@ -3,7 +3,7 @@ import Loading from '../components/global/Loading'
 import Map from '../components/trip_page/Map'
 import FlightBox from '../components/trip_page/FlightBox'
 import HotelBox from '../components/trip_page/HotelBox'
-import { Container, Alert } from 'react-bootstrap';
+import { Container, Alert, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlaneDeparture, faHotel, faGlobe, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -96,10 +96,10 @@ export default class Trip extends Component {
             <Container className="trip-page-container">
                 <Container className="trip-description-container">
                     <Container className="sort-box">
-                        <a href="!#" className={this.state.active === 'flights' ? 'active-link' : null} onClick={this.handleFlights}><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</a>
-                        <a href="!#" className={this.state.active === 'hotels' ? 'active-link' : null} onClick={this.handleHotels}><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</a>
-                        <a href="!#"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</a>
-                        <a href="!#"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</a>
+                        <Button variant="link" className={this.state.active === 'flights' ? 'active-link' : null} onClick={this.handleFlights}><FontAwesomeIcon icon={faPlaneDeparture} size="1x" /> Flights</Button>
+                        <Button variant="link" className={this.state.active === 'hotels' ? 'active-link' : null} onClick={this.handleHotels}><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</Button>
+                        <Button variant="link"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</Button>
+                        <Button variant="link"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</Button>
                     </Container>
                     {this.state.active === 'flights' ?
                         <Container className="flight-container">

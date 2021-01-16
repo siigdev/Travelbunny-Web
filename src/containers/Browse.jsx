@@ -71,10 +71,10 @@ export default class Browse extends Component {
                 <Row>
                     <Col>
                         <Container className="sort-box">
-                            <a href="/"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</a>
-                            <a href="/"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</a>
-                            <a href="/"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</a>
-                            <a href="/"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</a>
+                            <Button variant="link"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</Button>
                         </Container>
                         {this.renderTrips()}
                     </Col>

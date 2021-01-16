@@ -145,7 +145,7 @@ button[type=submit], button[type=cancel] {
   height: 45px;
   margin-bottom: 10px;
   max-width: 100%;
-  a {
+  .btn {
     font-family: sans-serif;
     text-decoration: none;
     color: $grey;
@@ -154,8 +154,7 @@ button[type=submit], button[type=cancel] {
     display: inline-block;
     padding: 0px 20px 10px 10px;
   }
-
-  a::after {
+  .btn::after {
     content: "";
     background: $primary;
     height: 2px;
@@ -163,20 +162,21 @@ button[type=submit], button[type=cancel] {
     bottom: 0;
     transition: .16s all 0.025s;
   }
-  
-  a::after {
+  .btn::after {
     left: 100%;
     right: 0;
   }
-  
-  a:hover ~ a::after {
+  .btn:hover ~ a::after {
     left: 0;
     right: 100%;
   }
-  
-  a:hover::after, .active-link::after {
+  .btn:hover::after, .active-link::after {
     left: 0;
     right: 0;
+  }
+  .btn:focus, .btn.focus {
+    outline: none;
+    box-shadow: none;
   }
 } 
 

@@ -31,8 +31,6 @@ class TripBox extends Component {
         )
     }
     handleReserve = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
         this.props.saveTripToState(this.trip)
         this.props.openAcceptReserveTripModal()
     }
