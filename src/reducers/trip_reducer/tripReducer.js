@@ -4,7 +4,7 @@ const initState = {
     timer: {
         reservedTime: null,
         started: false,
-        counter: 5
+        counter: 60*30
     }
 }
 
@@ -15,7 +15,7 @@ const tripReducer = (state = initState, action) => {
                 ...state,
                 trip: action.trip,
                 tripErr: action.error,
-                timer: {...state.timer, started: true, reservedTime: Date.now(), counter: 5}
+                timer: {...state.timer, started: true, reservedTime: Date.now(), counter: 60*30}
             };
         case 'TRIP_RESERVED_ERROR':
             return {
