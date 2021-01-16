@@ -48,17 +48,10 @@ const counterHandler = (dispatch, getState) => {
         let { trip } = getState();
         if(trip.timer !== undefined && trip.timer.counter <= 0){
             clearInterval(counterFunc);
-            cancelReserveTrip();
+            dispatch({type: "TRIP_RESERVED_CANCEL"})
+            dispatch({type: "OPEN_RESERVE_TIMED_OUT_MODAL"})
         } else {
-            dispatch({
-            type: 'TIMER_TICK'
-            });
+            dispatch({type: 'TIMER_TICK'});
         }
     }, 1000);
-}
-
-export const cancelReserveTrip = () => {
-    return (dispatch) => {
-        dispatch({type: "TRIP_RESERVED_CANCEL"})
-    }
 }

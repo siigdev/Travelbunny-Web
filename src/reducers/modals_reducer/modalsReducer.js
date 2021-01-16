@@ -14,6 +14,17 @@ const modalsReducer = (state = initState, action) => {
                 ...state,
                 acceptReserveTripModal: false
             };
+        case 'OPEN_RESERVE_TIMED_OUT_MODAL':
+            console.log("state")
+            return {
+                ...state, 
+                reserveTimedOutModal: true
+            }
+        case 'CLOSE_RESERVE_TIMED_OUT_MODAL':
+            return {
+                ...state, 
+                reserveTimedOutModal: false
+            }
         default:
             return state
     }

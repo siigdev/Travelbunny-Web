@@ -8,6 +8,7 @@ import Trip from '../containers/Trip'
 import NotFound from '../containers/NotFound'
 import {Switch, Route, HashRouter} from 'react-router-dom';
 import AcceptReserveTripModal from '../containers/modals/AcceptReserveTripModal';
+import ReserveTimedOutModal from '../containers/modals/ReserveTimedOutModal';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route component={NotFound}/>
         </Switch>
         <AcceptReserveTripModal />
+        <ReserveTimedOutModal />
         <Footer />
       </div>
     </HashRouter>

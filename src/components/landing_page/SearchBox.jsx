@@ -76,7 +76,7 @@ class SearchBox extends Component {
                             <Col xs="auto">
                                 <Button type="submit" className="mb-2 search-trips-button" onClick={() => this.searchTrip()}>
                                     Submit
-                </Button>
+                                </Button>
                             </Col>
                         </Form.Group>
                     </Form>
