@@ -10,17 +10,6 @@ export default class FlightBox extends Component {
         super(props);
         this.flight = props.flight;
     }
-
-    getPictureUrl(size) {
-        let url = '';
-        if (size === 'sm') {
-            url = `${this.trip.locations[0].picture}188160.png`
-        }
-        else if (size === 'lg') {
-            url = `${this.trip.locations[0].picture}375160.png`
-        }
-        return url
-    }
     render() {
         return (
 

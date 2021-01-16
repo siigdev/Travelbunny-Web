@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import { openAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
 import { saveTripToState } from '../../actions/tripActions/tripActions'
+import { getPictureUrl } from '../../helpers/imageHelper'
 
 class TripBox extends Component {
     constructor(props) {
@@ -29,16 +30,6 @@ class TripBox extends Component {
             this.trip.locations.length
         )
     }
-    getPictureUrl = (size) => {
-        let url = '';
-        if (size === 'sm') {
-            url = `${this.trip.locations[0].picture}188160.png`
-        }
-        else if (size === 'lg') {
-            url = `${this.trip.locations[0].picture}375160.png`
-        }
-        return url
-    }
     handleReserve = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -49,7 +40,7 @@ class TripBox extends Component {
         return (
             <Container className="trip-container">
                 <Row>
-                    <Col className="trip-section-img"><Image src={this.getPictureUrl('sm')} key={this.trip.id} /></Col>
+                    <Col className="trip-section-img"><Image src={getPictureUrl(this.trip.locations[0].picture, 'sm')} key={this.trip.id} /></Col>
                     <Col className="trip-section-info">
                         <h4>{this.trip.title}</h4>
                         <h5>{this.getTotalStayLength()} Days | {this.getAmountOfCities()} Cities</h5>

@@ -16,7 +16,7 @@ class AcceptReserveTripModal extends Component {
         return (
             <>
                 <Modal show={this.props.AcceptReserveTripModal}>
-                    <Modal.Header closeButton>
+                    <Modal.Header closeButton onClick={this.handleClose}>
                         <Modal.Title>Accept Reserve</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
