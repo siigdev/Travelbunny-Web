@@ -29,7 +29,7 @@ export default class Browse extends Component {
             currency: 'DKK',
             locale: 'en-US'
         })
-        fetch("https://183my5kbhd.execute-api.eu-central-1.amazonaws.com/Prod/?" + params)
+        fetch("https://hj240syse0.execute-api.eu-central-1.amazonaws.com/prod/?" + params)
             .then(response => response.json())
             .then(response => {
                 this.setState({ loading: false, trips: response.trips })
