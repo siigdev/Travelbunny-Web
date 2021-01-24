@@ -27,7 +27,7 @@ export const reserveTrip = () => {
                 trip
             ).then((response) => {
                 if(response) {
-                    dispatch({type: "TRIP_RESERVED_SUCCESS"})
+                    dispatch({type: "TRIP_RESERVED_SUCCESS", trip: response.trip})
 
                     // Start the trip reserve counter with a dispatch timer
                     counterHandler(dispatch, getState);     

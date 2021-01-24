@@ -1,4 +1,5 @@
-$primary: #e83f53;
+$primary: #3e67ff;
+$secondary: #222B60;
 $grey: #545454;
 
 @import "custom-bootstrap";
@@ -7,7 +8,9 @@ $grey: #545454;
 body {
   background-color: #FFF;
   margin: 0;
+  font-weight: 400;
   font-family: Lato,sans-serif;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,12 +48,14 @@ footer {
 .font-small {
   font-size: .9rem;
 }
-
+.navbar-brand a {
+  color: $secondary;
+}
 .navbar {
   padding: 0px 10px 0px 10px;
   margin: 0;
-  height: 5vh;
-  min-height: 5vh;
+  height: 6vh;
+  min-height: 6vh;
 }
 nav {
   display: flex;
@@ -72,7 +77,7 @@ nav {
   text-align: center;
   padding: 1px;
   width: 100px;
-  line-height: 5vh;
+  line-height: 6vh;
 }
 .App {
   width: 100%;
@@ -91,7 +96,7 @@ button[type=submit], button[type=cancel] {
 }
 .search-container {
   background-color: $primary;
-  background-image: url(../assets/images/header-background.jpg);
+  background-image: url(../assets/images/wallp.jpg);
   background-size: cover;
   background-position: center top;
   width: 100%;
@@ -182,13 +187,17 @@ button[type=submit], button[type=cancel] {
 
 .browse-container {
   max-width: 1200px;
+
   margin: 50px auto 50px auto;
   .search-settings {
     max-width: 300px;
-    background-color: #f9f9f9;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    background-color: #fefefe;
     border: 1px solid lightgrey;
     text-align: left;
-    color: #777;
+    color: #444;
     margin: 75px 0px 8px 10px;
     padding: 15px;
     height:100%;
@@ -230,15 +239,25 @@ button[type=submit], button[type=cancel] {
   }
   img {
     width: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   .trip-section-info {
-    padding: 10px 5px 10px 5px;
+    padding: 10px;
+  }
+  .trip-section-img {
+    margin: -1px;
   }
   
   &:hover {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
+}
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .trip-section-buy {
   display: flex;

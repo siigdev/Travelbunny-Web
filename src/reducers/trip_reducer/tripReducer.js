@@ -13,7 +13,6 @@ const tripReducer = (state = initState, action) => {
         case 'TRIP_RESERVED_SUCCESS':
             return {
                 ...state,
-                trip: action.trip,
                 tripErr: action.error,
                 timer: {...state.timer, started: true, reservedTime: Date.now(), counter: 60*30}
             };
@@ -32,6 +31,11 @@ const tripReducer = (state = initState, action) => {
             return {
                 ...state,
                 timer: {...state.timer, counter: state.timer.counter - 1}
+            }
+        case 'SAVE_TRIP_TO_STATE':
+            return {
+                ...state,
+                trip: action.trip
             }
         default:
             return state

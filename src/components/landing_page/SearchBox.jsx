@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 // eslint-disable-next-line
 import { withRouter } from 'react-router-dom';
 import { InputGroup, Button, Container, Col, Form } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
-
+import DatePicker from 'react-datepicker';
 
 class SearchBox extends Component {
     constructor(props) {
@@ -52,7 +51,7 @@ class SearchBox extends Component {
                                     onChange={(event) => this.setState({ city: event.target.value })}
                                 />
                             </InputGroup>
-                            <Form.Label htmlFor="input-start-date">When?</Form.Label>
+                            <Form.Label htmlFor="input-start-date">From?</Form.Label>
                             <InputGroup>
                                 <DatePicker
                                     className="mx-sm-2 form-control"
@@ -62,7 +61,7 @@ class SearchBox extends Component {
                                     minDate={new Date()}
                                 />
                             </InputGroup>
-                            <Form.Label htmlFor="input-end-date">What?</Form.Label>
+                            <Form.Label htmlFor="input-end-date">To?</Form.Label>
                             <InputGroup>
                                 <DatePicker
                                     className="mx-sm-2 form-control"
@@ -75,7 +74,7 @@ class SearchBox extends Component {
 
                             <Col xs="auto">
                                 <Button type="submit" className="mb-2 search-trips-button" onClick={() => this.searchTrip()}>
-                                    Submit
+                                    Search
                                 </Button>
                             </Col>
                         </Form.Group>

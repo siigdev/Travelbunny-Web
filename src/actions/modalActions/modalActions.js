@@ -11,7 +11,6 @@ export const closeAcceptReserveTripModal = () => {
 }
 
 export const openReserveTimedOutModal = () => {
-    console.log("open2")
     return (dispatch) => {
         dispatch({type: "OPEN_RESERVE_TIMED_OUT_MODAL"})
     }

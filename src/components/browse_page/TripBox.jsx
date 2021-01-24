@@ -13,10 +13,14 @@ class TripBox extends Component {
         this.trip = props.trip;
     }
     renderDestinations = () => {
-        return this.trip.locations.map((loc) => {
-            return (
-                <p key={loc.locationId} className="inline-block">{loc.destination} <FontAwesomeIcon icon={faChevronRight} size="xs" /></p>
+        return this.trip.locations.map((loc, index) => {
+            if (index)
+                return (
+                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}</span>
             )
+            else {
+                return loc.destination + ' '
+            }
         });
     }
 
@@ -32,7 +36,7 @@ class TripBox extends Component {
     }
     handleReserve = (e) => {
         this.props.saveTripToState(this.trip)
-        this.props.openAcceptReserveTripModal()
+        this.props.openAcceptReserveTripModal(this.trip)
     }
     render() {
         return (
@@ -40,10 +44,9 @@ class TripBox extends Component {
                 <Row>
                     <Col className="trip-section-img"><Image src={getPictureUrl(this.trip.locations[0].picture, 'sm')} key={this.trip.id} /></Col>
                     <Col className="trip-section-info">
-                        <h4>{this.trip.title}</h4>
-                        <h5>{this.getTotalStayLength()} Days | {this.getAmountOfCities()} Cities</h5>
-                        <h6>DESTINATIONS</h6>
-                        <span><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
+                        <h4>{this.getTotalStayLength()} Days | {this.getAmountOfCities()} Cities</h4>
+                        <span>DESTINATIONS</span><br />
+                        <span style={{fontSize: 11}}><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
                         <div>
                             <Badge pill variant="secondary">
                                 Family
