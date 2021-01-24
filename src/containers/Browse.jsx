@@ -45,7 +45,6 @@ export default class Browse extends Component {
         })
     }
     renderTrips() {
-        console.log("test")
         if (!this.state.loading && (this.state.trips === undefined || !this.state.trips.length))
             return (
                 <Alert variant='danger'>
