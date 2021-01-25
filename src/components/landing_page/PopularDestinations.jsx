@@ -29,31 +29,31 @@ export default class PopularDestinations extends Component {
                     <Card>
                         <Card.Img variant="top" src={one} />
                         <Card.Body>
-                            <Card.Title>Paris</Card.Title>
+                            <Card.Title>Pathos</Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
                         <Card.Img variant="top" src={two} />
                         <Card.Body>
-                            <Card.Title>London</Card.Title>
+                            <Card.Title>Istambul</Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
                         <Card.Img variant="top" src={three} />
                         <Card.Body>
-                            <Card.Title>Copenhagen</Card.Title>
+                            <Card.Title>Rijeka</Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
                         <Card.Img variant="top" src={four} />
                         <Card.Body>
-                            <Card.Title>Moscow</Card.Title>
+                            <Card.Title>Lviv</Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
                         <Card.Img variant="top" src={five} />
                         <Card.Body>
-                            <Card.Title>New York City</Card.Title>
+                            <Card.Title>Rome</Card.Title>
                         </Card.Body>
                     </Card>
                 </Slider>
