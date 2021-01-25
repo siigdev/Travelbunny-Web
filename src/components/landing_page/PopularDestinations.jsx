@@ -35,7 +35,7 @@ export default class PopularDestinations extends Component {
                     <Card>
                         <Card.Img variant="top" src={two} />
                         <Card.Body>
-                            <Card.Title>Istambul</Card.Title>
+                            <Card.Title>Istanbul</Card.Title>
                         </Card.Body>
                     </Card>
                     <Card>
