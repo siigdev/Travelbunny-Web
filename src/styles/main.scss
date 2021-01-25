@@ -67,6 +67,7 @@ nav {
 .nav-link {
   text-decoration: none !important;
   color: white;
+  cursor:pointer;
   &:hover {
     font-weight: bold;
   }
