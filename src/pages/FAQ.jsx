@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Accordion, Card, Button } from 'react-bootstrap';
+import { Container, Accordion, Button } from 'react-bootstrap';
 
 export default class FAQ extends Component {
 

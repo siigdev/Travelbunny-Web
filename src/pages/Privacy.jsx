@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap';
 
-export default class TermsAndConditions extends Component {
+export default class Privacy extends Component {
 
     render() {
         return (
             <Container>
-                <h1>Terms and Conditions</h1>
+                <h1>Privacy</h1>
             </Container>
         )
     }
