@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faHome, faEnvelope, faStamp } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <footer className="page-footer font-small">
@@ -15,7 +16,7 @@ const Footer = () => (
         </Col>
         <Col>
           <h6 className="uppercase">Company</h6>
-          <p><a href="#!">About</a></p>
+          <p><Link to={'/About'}>About</Link></p>
           <p><a href="#!">Career</a></p>
           <p><a href="#!">Press</a></p>
           <p><a href="#!">Privacy</a></p>
