@@ -17,17 +17,17 @@ const Footer = () => (
         <Col>
           <h6 className="uppercase">Company</h6>
           <p><Link to={'/About'}>About</Link></p>
-          <p><a href="#!">Career</a></p>
-          <p><a href="#!">Press</a></p>
-          <p><a href="#!">Privacy</a></p>
-          <p><a href="#!">Terms and conditions</a></p>
+          <p><Link to={'/Career'}>Career</Link></p>
+          <p><Link to={'/Press'}>Press</Link></p>
+          <p><Link to={'/Privacy'}>Privacy</Link></p>
+          <p><Link to={'/TermsAndConditions'}>Terms and Conditions</Link></p>
         </Col>
         <Col>
           <h6 className="uppercase">Support</h6>
-          <p><a href="#!">Contact</a></p>
-          <p><a href="#!">FAQ</a></p>
-          <p><a href="#!">Enquiry</a></p>
-          <p><a href="#!">Site Map</a></p>
+          <p><Link to={'/Contact'}>Contact</Link></p>
+          <p><Link to={'/FAQ'}>FAQ</Link></p>
+          <p><Link to={'/Enquiry'}>Enquiry</Link></p>
+          <p><Link to={'/Sitemap'}>Site Map</Link></p>
         </Col>
         <Col>
           <h6 className="uppercase">Contact</h6>
