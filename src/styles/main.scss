@@ -62,6 +62,7 @@ nav {
 .nav-link {
   text-decoration: none !important;
   color: white;
+  cursor:pointer;
   &:hover {
     font-weight: bold;
   }
@@ -312,7 +313,9 @@ button[type=submit], button[type=cancel] {
       flex-grow: 0;
     }
 }
-
+a {
+  cursor:pointer;
+}
 .popular-destinations{
   padding: 50px;
 }

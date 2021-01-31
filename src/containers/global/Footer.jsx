@@ -9,7 +9,9 @@ const Footer = () => (
       <Row>
         <Col>
           <h6 className="uppercase">Nordico</h6>
-          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>The best adventures, every time. More than 28 million places to stay and 300 possible destinations. 
+            Using real time pricing and an advanced algorithm we will find the perfect trip for you with hotels and flights included. 
+            Start exploring now!</p>
         </Col>
         <Col>
           <h6 className="uppercase">Company</h6>
