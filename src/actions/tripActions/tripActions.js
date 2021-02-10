@@ -19,6 +19,25 @@ export const saveTripToState = (tripObj) => {
         }
     }
 }
+export const saveTripsToState = (trips) => {
+    return (dispatch) => {
+        try{
+            service.saveTripsToState(
+                trips
+            ).then((response) => {
+                if(response) {
+                    dispatch({type: "SAVE_TRIPS_TO_STATE", trips: response})    
+                }
+                else
+                    dispatch({type: "TRIPS_SAVE_TO_STATE_ERROR"})
+            }).catch((error) => {
+                dispatch({type: "TRIPS_SAVE_TO_STATE_ERROR", error})
+            })
+        } catch(error) {
+            dispatch({type: "TRIPS_SAVE_TO_STATE_ERROR", error})
+        }
+    }
+}
 export const reserveTrip = () => {
     return (dispatch, getState) => {
         let { trip } = getState();

@@ -1,6 +1,7 @@
 const initState = {
     tripErr: null,
     trip: null,
+    trips: null,
     timer: {
         reservedTime: null,
         started: false,
@@ -36,6 +37,11 @@ const tripReducer = (state = initState, action) => {
             return {
                 ...state,
                 trip: action.trip
+            }
+        case 'SAVE_TRIPS_TO_STATE':
+            return {
+                ...state,
+                trips: action.trips
             }
         default:
             return state

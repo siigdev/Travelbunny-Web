@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import Loading from '../components/global/Loading'
 import TripBox from '../components/browse_page/TripBox'
 import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
+import { saveTripsToState } from '../actions/tripActions/tripActions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faSortAmountUp, faSortAmountDown, faSortNumericUp, faSearch, faDollarSign, faGlobe } from "@fortawesome/free-solid-svg-icons";
-// eslint-disable-next-line
 
-
-export default class Browse extends Component {
+class Browse extends Component {
     constructor(props) {
         super(props);
         this.match = props.match.params;
         this.state = {
             error: '',
-            trips: [],
             loading: true,
             price: 975
         }
@@ -29,15 +28,23 @@ export default class Browse extends Component {
             currency: 'DKK',
             locale: 'en-US'
         })
-        fetch("https://hj240syse0.execute-api.eu-central-1.amazonaws.com/prod/?" + params)
-            .then(response => response.json())
-            .then(response => {
-                this.setState({ loading: false, trips: response.trips })
-            })
-            .catch((error) => {
-                this.setState({ loading: false, error: error })
-            });
-    }
+
+        if(this.props.trips !== null && this.props.trips !== undefined) {
+            this.setState({ loading: false })
+        }
+        else {
+            console.log("fetcher")
+            fetch("https://hj240syse0.execute-api.eu-central-1.amazonaws.com/prod/?" + params)
+                .then(response => response.json())
+                .then(response => {
+                    this.props.saveTripsToState(response.trips)
+                    this.setState({ loading: false })
+                })
+                .catch((error) => {
+                    this.setState({ loading: false, error: error })
+                });
+            }
+        }
     viewTrip(trip) {
         this.props.history.push({
             pathname: '/Trip/' + trip.id,
@@ -45,13 +52,13 @@ export default class Browse extends Component {
         })
     }
     renderTrips() {
-        if (!this.state.loading && (this.state.trips === undefined || !this.state.trips.length))
+        if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length))
             return (
                 <Alert variant='danger'>
-                    Error! We could not find any travel packages matching your search parameters. Please try again.
+                    Error! We could not find any travel packages matching your s    earch parameters. Please try again.
                 </Alert>
             )
-        else return this.state.trips.map((trip) => {
+        else return this.props.trips.map((trip) => {
             return (
                 <div onClick={() => this.viewTrip(trip)} key={trip.id} >
                     <TripBox trip={trip} />
@@ -125,4 +132,15 @@ export default class Browse extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        trips: state.trip.trips
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveTripsToState: (trips) => dispatch(saveTripsToState(trips))
+    }
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(Browse)
