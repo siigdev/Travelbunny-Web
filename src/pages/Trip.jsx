@@ -23,7 +23,7 @@ export default class Trip extends Component {
         this.handleHotels = this.handleHotels.bind(this, false);
     }
     componentDidMount() {
-        fetch(`https://657vlr7156.execute-api.eu-central-1.amazonaws.com/Prod/?tripID=${this.match.params.id}`)
+        fetch(`https://5hulox4yxh.execute-api.eu-central-1.amazonaws.com/prod/?tripID=${this.match.params.id}`)
             .then(response => response.json())
             .then(response => {
                 this.setState({ loading: false, flights: response.tripDetails.flights })

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { InputGroup, Button, Container, Col, Form } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
+import StepSelector from '../landing_page/stepSelector/StepSelector'
 
 class SearchBox extends Component {
     constructor(props) {
@@ -25,21 +26,26 @@ class SearchBox extends Component {
         this.props.history.push({
             pathname: `/Browse/${startDate}/${endDate}/${this.state.city}/${this.state.stayLength}/${this.state.country}/`,
             res: "response",
+            state: { new: true}
         })
     }
     render() {
         return (
             <Container className="search-container" fluid>
+                {/* <h2 align="center" style={{color: 'white'}}>Answer 5 simple questions and our algorithm will create the perfect trip ideas for you</h2> */}
                 <Container className="search-box">
+                    {/* <StepSelector/> */}
                     <Form inline onSubmit={e => {
                         e.preventDefault()
                     }}>
-                        <Form.Group>
+                        
+                         <Form.Group>
                             <div className="search-title">
                                 <h5>
                                     Start exploring
                                 </h5>
                             </div>
+                            
                             <Form.Label htmlFor="input-city">Where?</Form.Label>
                             <InputGroup>
                                 <Form.Control

@@ -29,11 +29,10 @@ class Browse extends Component {
             locale: 'en-US'
         })
 
-        if(this.props.trips !== null && this.props.trips !== undefined) {
+        if(this.props.trips !== null && this.props.trips !== undefined && !this.props.location.state.new) {
             this.setState({ loading: false })
         }
         else {
-            console.log("fetcher")
             fetch("https://hj240syse0.execute-api.eu-central-1.amazonaws.com/prod/?" + params)
                 .then(response => response.json())
                 .then(response => {
