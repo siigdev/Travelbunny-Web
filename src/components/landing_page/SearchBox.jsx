@@ -26,7 +26,7 @@ class SearchBox extends Component {
         this.props.history.push({
             pathname: `/Browse/${startDate}/${endDate}/${this.state.city}/${this.state.stayLength}/${this.state.country}/`,
             res: "response",
-            state: { new: true}
+            new:  true
         })
     }
     render() {

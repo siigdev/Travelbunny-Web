@@ -29,7 +29,7 @@ class Browse extends Component {
             locale: 'en-US'
         })
 
-        if(this.props.trips !== null && this.props.trips !== undefined && !this.props.location.state.new) {
+        if(this.props.trips !== null && this.props.trips !== undefined && this.props.location.new !== true) {
             this.setState({ loading: false })
         }
         else {
