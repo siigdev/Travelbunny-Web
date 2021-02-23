@@ -1,2 +1,0 @@
-(this["webpackJsonptravel-bunny"]=this["webpackJsonptravel-bunny"]||[]).push([[3],{232:function(e,t,a){"use strict";a.r(t);var n=a(97),u=a(0),c=a.n(u),r=a(220),l=a(226);t.default=function(){var e=Object(u.useState)("Copenhagen"),t=Object(n.a)(e,2),a=t[0],i=t[1];return c.a.createElement(r.a,null,c.a.createElement(l.a.Control,{type:"text",className:"mx-sm-2",id:"input-city","aria-describedby":"city-help",defaultValue:a,onChange:function(e){i(e.target.value)}}))}}}]);
-//# sourceMappingURL=3.72ca91bf.chunk.js.map
