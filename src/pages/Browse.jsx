@@ -54,7 +54,7 @@ class Browse extends Component {
         if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length))
             return (
                 <Alert variant='danger'>
-                    Error! We could not find any travel packages matching your s    earch parameters. Please try again.
+                    Opps! We could not find any travel packages matching your search parameters. Please try again using a difrent range.
                 </Alert>
             )
         else return this.props.trips.map((trip) => {
