@@ -1,23 +1,17 @@
 {
   "files": {
-    "main.css": "/Travelbunny-Web/static/css/main.79b8b84c.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.6a38829c.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.6a38829c.chunk.js.map",
-    "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.defdbace.js",
-    "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.defdbace.js.map",
+    "main.css": "/Travelbunny-Web/static/css/main.0ae64087.chunk.css",
+    "main.js": "/Travelbunny-Web/static/js/main.1e0b50b0.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.1e0b50b0.chunk.js.map",
+    "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js",
+    "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js.map",
     "static/css/2.366b30e1.chunk.css": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css",
-    "static/js/2.1163efc0.chunk.js": "/Travelbunny-Web/static/js/2.1163efc0.chunk.js",
-    "static/js/2.1163efc0.chunk.js.map": "/Travelbunny-Web/static/js/2.1163efc0.chunk.js.map",
-    "static/js/3.dfc82db3.chunk.js": "/Travelbunny-Web/static/js/3.dfc82db3.chunk.js",
-    "static/js/3.dfc82db3.chunk.js.map": "/Travelbunny-Web/static/js/3.dfc82db3.chunk.js.map",
-    "static/js/4.d88c969d.chunk.js": "/Travelbunny-Web/static/js/4.d88c969d.chunk.js",
-    "static/js/4.d88c969d.chunk.js.map": "/Travelbunny-Web/static/js/4.d88c969d.chunk.js.map",
-    "static/js/5.c75ced3f.chunk.js": "/Travelbunny-Web/static/js/5.c75ced3f.chunk.js",
-    "static/js/5.c75ced3f.chunk.js.map": "/Travelbunny-Web/static/js/5.c75ced3f.chunk.js.map",
+    "static/js/2.f8f09277.chunk.js": "/Travelbunny-Web/static/js/2.f8f09277.chunk.js",
+    "static/js/2.f8f09277.chunk.js.map": "/Travelbunny-Web/static/js/2.f8f09277.chunk.js.map",
     "index.html": "/Travelbunny-Web/index.html",
     "static/css/2.366b30e1.chunk.css.map": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css.map",
-    "static/css/main.79b8b84c.chunk.css.map": "/Travelbunny-Web/static/css/main.79b8b84c.chunk.css.map",
-    "static/js/2.1163efc0.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.1163efc0.chunk.js.LICENSE.txt",
+    "static/css/main.0ae64087.chunk.css.map": "/Travelbunny-Web/static/css/main.0ae64087.chunk.css.map",
+    "static/js/2.f8f09277.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.f8f09277.chunk.js.LICENSE.txt",
     "static/media/1.24652602.png": "/Travelbunny-Web/static/media/1.24652602.png",
     "static/media/2.202b6645.png": "/Travelbunny-Web/static/media/2.202b6645.png",
     "static/media/3.5368790b.png": "/Travelbunny-Web/static/media/3.5368790b.png",
@@ -28,10 +22,10 @@
     "static/media/main.scss": "/Travelbunny-Web/static/media/wallp.3fd1c7bd.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.defdbace.js",
+    "static/js/runtime-main.ed02c635.js",
     "static/css/2.366b30e1.chunk.css",
-    "static/js/2.1163efc0.chunk.js",
-    "static/css/main.79b8b84c.chunk.css",
-    "static/js/main.6a38829c.chunk.js"
+    "static/js/2.f8f09277.chunk.js",
+    "static/css/main.0ae64087.chunk.css",
+    "static/js/main.1e0b50b0.chunk.js"
   ]
 }
