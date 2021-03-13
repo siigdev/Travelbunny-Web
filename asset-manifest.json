@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Travelbunny-Web/static/css/main.79b8b84c.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.fcd84ba9.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.fcd84ba9.chunk.js.map",
+    "main.js": "/Travelbunny-Web/static/js/main.e59be3cd.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.e59be3cd.chunk.js.map",
     "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.defdbace.js",
     "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.defdbace.js.map",
     "static/css/2.366b30e1.chunk.css": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css",
@@ -32,6 +32,6 @@
     "static/css/2.366b30e1.chunk.css",
     "static/js/2.1163efc0.chunk.js",
     "static/css/main.79b8b84c.chunk.css",
-    "static/js/main.fcd84ba9.chunk.js"
+    "static/js/main.e59be3cd.chunk.js"
   ]
 }
