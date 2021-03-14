@@ -1,13 +1,14 @@
-import React, { useState, Suspense, useRef, useEffect } from 'react';
+import React, { useState, Suspense, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import Loading from '../../global/Loading';
+import { saveSearchoptions } from '../../../actions/tripActions/tripActions'
 
 const TripLengthStep = React.lazy(() => import('../stepSelector/TripLengthStep'));
 const DepatureStep = React.lazy(() => import('../stepSelector/DepartureStep'));
 const FreeTimeStep = React.lazy(() => import('../stepSelector/FreeTimeStep'));
 
-const StepSelector = () => {
+const StepSelector = (props) => {
   const [step, setStep] = useState(1);
   const [tripLengthState, setTripLength] = useState();
   const [departureState, setDeparture] = useState();
@@ -18,7 +19,20 @@ const StepSelector = () => {
   const freeTime = useRef();
 
   const submit = () => {
-      console.log("done")
+    if(freeTime.current !== undefined && freeTime.current !== null) {
+      setStartDate(freeTime.current.getDates().start)
+      setEndDate(freeTime.current.getDates().start)
+    }
+    props.saveSearchoptions(tripLengthState, departureState, startDate, endDate);
+
+    let startDateISO = startDate.toISOString().slice(0, 10);
+    let endDateISO = endDate.toISOString().slice(0, 10);
+
+    props.history.push({
+        pathname: `/Browse/${startDateISO}/${endDateISO}/${departureState}/${tripLengthState}/DK/`,
+        res: "response",
+        new:  true
+    })
   };
 
   const setFormStep = (stepValue) => {
@@ -29,10 +43,7 @@ const StepSelector = () => {
     if(tripLength.current !== undefined && tripLength.current !== null)
       setTripLength(tripLength.current.getTripLength());
 
-    if(freeTime.current !== undefined && freeTime.current !== null) {
-      setStartDate(freeTime.current.getDates().start)
-      setEndDate(freeTime.current.getDates().start)
-    }
+
     setStep(stepValue);
   };
 
@@ -76,9 +87,10 @@ const StepSelector = () => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-    return {
-        searchOptions: state.trip.searchOptions
-    }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      saveSearchoptions: (tripLengthState, departureState, startDate, endDate) => dispatch(saveSearchoptions(tripLengthState, departureState, startDate, endDate))
+  }
 }
-export default connect(mapStateToProps)(StepSelector)
+export default connect(null, mapDispatchToProps)(StepSelector)

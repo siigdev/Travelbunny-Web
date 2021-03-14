@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { InputGroup, Button, Container, Col, Form } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
-import StepSelector from '../landing_page/stepSelector/StepSelector'
+import cities from '../../constants/cities';
+import { Typeahead } from 'react-bootstrap-typeahead';
+import { saveSearchoptions } from '../../actions/tripActions/tripActions'
+
 
 class SearchBox extends Component {
     constructor(props) {
@@ -23,6 +27,7 @@ class SearchBox extends Component {
         let startDate = this.state.startDate.toISOString().slice(0, 10);
         let endDate = this.state.endDate.toISOString().slice(0, 10);
 
+        this.props.saveSearchoptions(this.state.stayLength, this.state.city, startDate, endDate);
         this.props.history.push({
             pathname: `/Browse/${startDate}/${endDate}/${this.state.city}/${this.state.stayLength}/${this.state.country}/`,
             res: "response",
@@ -34,7 +39,7 @@ class SearchBox extends Component {
             <Container className="search-container" fluid>
                 {/* <h2 align="center" style={{color: 'white'}}>Answer 5 simple questions and our algorithm will create the perfect trip ideas for you</h2> */}
                 <Container className="search-box">
-                    {/* <StepSelector/> */}
+                    {/* <StepSelector history={this.props.history}/> */}
                     <Form inline onSubmit={e => {
                         e.preventDefault()
                     }}>
@@ -46,19 +51,20 @@ class SearchBox extends Component {
                                 </h5>
                             </div>
                             
-                            <Form.Label htmlFor="input-city">Where?</Form.Label>
-                            <InputGroup>
-                                <Form.Control
-                                    type="text"
-                                    className="mx-sm-2"
-                                    id="input-city"
-                                    aria-describedby="city-help"
-                                    defaultValue={this.state.city}
-                                    onChange={(event) => this.setState({ city: event.target.value })}
+                            <Form.Label htmlFor="input-city">Where are you?</Form.Label>
+                            <Typeahead
+                                id="basic-typeahead-single"
+                                aria-describedby="city-help"
+                                labelKey="name"
+                                className="mx-sm-2"
+                                onChange={(event) => this.setState({ city: event[0] })}
+                                options={cities}
+                                placeholder="Select your location"
                                 />
-                            </InputGroup>
-                            <Form.Label htmlFor="input-start-date">From?</Form.Label>
+                            
+                            <Form.Label htmlFor="input-start-date">Search range: </Form.Label>
                             <InputGroup>
+
                                 <DatePicker
                                     className="mx-sm-2 form-control"
                                     selected={this.state.startDate}
@@ -67,7 +73,7 @@ class SearchBox extends Component {
                                     minDate={new Date()}
                                 />
                             </InputGroup>
-                            <Form.Label htmlFor="input-end-date">To?</Form.Label>
+                            <Form.Label htmlFor="input-end-date">To: </Form.Label>
                             <InputGroup>
                                 <DatePicker
                                     className="mx-sm-2 form-control"
@@ -91,4 +97,9 @@ class SearchBox extends Component {
     }
 }
 
-export default withRouter(SearchBox)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveSearchoptions: (tripLengthState, departureState, startDate, endDate) => dispatch(saveSearchoptions(tripLengthState, departureState, startDate, endDate))
+    }
+  }
+export default connect(null, mapDispatchToProps)(withRouter(SearchBox))

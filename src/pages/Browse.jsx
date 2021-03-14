@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import Loading from '../components/global/Loading'
 import TripBox from '../components/browse_page/TripBox'
 import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
-import { saveTripsToState } from '../actions/tripActions/tripActions'
-
+import { saveTripsToState } from '../actions/tripActions/tripActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faSortAmountUp, faSortAmountDown, faSortNumericUp, faSearch, faDollarSign, faGlobe } from "@fortawesome/free-solid-svg-icons";
 
@@ -54,7 +53,7 @@ class Browse extends Component {
         if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length))
             return (
                 <Alert variant='danger'>
-                    Error! We could not find any travel packages matching your s    earch parameters. Please try again.
+                    Error! We could not find any travel packages matching your search parameters. Please <a href="javascript:window.location.reload(true)">try again</a>.
                 </Alert>
             )
         else return this.props.trips.map((trip) => {
@@ -78,7 +77,7 @@ class Browse extends Component {
                     <Col>
                         <Container className="sort-box">
                             <Button variant="link"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
+                            <Button variant="link" ><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
                             <Button variant="link"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
                             <Button variant="link"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</Button>
                         </Container>
@@ -107,10 +106,10 @@ class Browse extends Component {
 
                         <Form.Group controlId="formBasicRange">
                             <Form.Label>Maximum Price</Form.Label>
-                            <Form.Control type="range" defaultValue={this.state.price} max="10000" onChange={e => this.setState({ price: e.target.value })} />
+                            <Form.Control type="range" value={this.state.price} max="10000" onChange={e => this.setState({ price: e.target.value })} />
                         </Form.Group>
                         <InputGroup className="mb-2">
-                            <FormControl id="search-price" placeholder={this.state.price} />
+                            <FormControl id="search-price" placeholder={this.state.price} value={this.state.price} onChange={e => this.setState({ price: e.target.value })}/>
                             <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faDollarSign} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>

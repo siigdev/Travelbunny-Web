@@ -2,6 +2,7 @@ const initState = {
     tripErr: null,
     trip: null,
     trips: null,
+    searchOptions: null,
     timer: {
         reservedTime: null,
         started: false,
@@ -37,6 +38,11 @@ const tripReducer = (state = initState, action) => {
             return {
                 ...state,
                 trip: action.trip
+            }
+        case 'SAVE_SEARCH_OPTIONS':
+            return {
+                ...state,
+                searchOptions: action.search
             }
         case 'SAVE_TRIPS_TO_STATE':
             return {

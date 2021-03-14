@@ -12,6 +12,11 @@ input[type="checkbox" i] {
     background-color: #FFF;
     color: #6c757d;
 }
+@media (min-width: 920px) {
+.container {
+    max-width: 1300px;
+}
+}
 .badge-pill {
     padding-right: 1em;
     padding-left: 1em;

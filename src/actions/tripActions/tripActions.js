@@ -19,6 +19,25 @@ export const saveTripToState = (tripObj) => {
         }
     }
 }
+export const saveSearchoptions = (tripLengthState, departureState, startDate, endDate) => {
+    return (dispatch) => {
+        try{
+            service.saveSearchOptions(
+                tripLengthState, departureState, startDate, endDate
+            ).then((response) => {
+                if(response) {
+                    dispatch({type: "SAVE_SEARCH_OPTIONS", search: response})    
+                }
+                else
+                    dispatch({type: "TRIP_SEARCH_OPTIONS_ERROR"})
+            }).catch((error) => {
+                dispatch({type: "TRIP_SEARCH_OPTIONS_ERROR", error})
+            })
+        } catch(error) {
+            dispatch({type: "TRIP_SEARCH_OPTIONS_ERROR", error})
+        }
+    }
+}
 export const saveTripsToState = (trips) => {
     return (dispatch) => {
         try{
