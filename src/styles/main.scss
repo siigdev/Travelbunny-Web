@@ -1,6 +1,8 @@
 $primary: #3e67ff;
 $secondary: #222B60;
 $grey: #545454;
+$lighterGrey: #969696;
+$lightestGrey: #cacaca;
 
 @import "custom-bootstrap";
 @import "~react-datepicker/dist/react-datepicker.css";
@@ -13,6 +15,9 @@ body {
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+a:hover {
+  text-decoration: none;
 }
 .loading-container {
   width: 100%;
@@ -54,8 +59,8 @@ footer {
 .navbar {
   padding: 0px 10px 0px 10px;
   margin: 0;
-  height: 6vh;
   min-height: 6vh;
+  vertical-align: top;
 }
 nav {
   display: flex;
@@ -63,6 +68,9 @@ nav {
   align-items: center;
   background-color: lightblue;
   color: white;
+  vertical-align: top;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 .nav-link {
   text-decoration: none !important;
@@ -72,6 +80,77 @@ nav {
     font-weight: bold;
   }
 }
+.navigation-search-btn:hover, .navigation-search-btn:focus, .navigation-search-btn:active {
+  background-color: transparent;
+  color: $secondary;
+  outline:0!important;
+  box-shadow: none;
+}
+.navigation-search-btn {
+  padding: 5px;
+  color:$secondary;
+  border-radius: 100px;
+  border-color: $lighterGrey;
+  background-color: transparent;
+  line-height: 1;
+  height: 4.2vh;
+  width:auto;
+  max-width: 400px;
+  font-size: 13px;
+  transition: max-width 1s;
+  -webkit-transition: all 0.8s ease;  
+  -moz-transition: all 0.8s ease;  
+  -o-transition: all 0.8s ease;  
+  -ms-transition: all 0.8s ease;  
+  transition: all 0.8s ease;
+  div:nth-child(2) {
+    border-left: 1px solid $lightestGrey;
+    border-right: 1px solid $lightestGrey;
+  }
+  .search-icon {
+    background-color: $primary;
+    color: white;
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    vertical-align: top;
+    padding: 7px;
+  }
+  .search-icon-text-btn {
+    border-radius: 50px;
+    color: white !important;
+    height: 4.5vh;
+    vertical-align: top;
+    background-color: $primary
+    
+  }
+  .label-text {
+    font-size: 9px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+  .search-item-container{
+    display: inline-block;
+    padding: 5px 10px 10px 5px;
+  }
+}
+.navigation-search-btn:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+.navigation-search-btn-active {
+  max-width: 1500px;
+  font-size: 16px;
+  height: 6vh !important;
+  margin: 10px;
+}
+.space-between {
+  display: flex;
+  justify-content:space-between;
+}
 .purchase-nav-item {
   color: white !important;
   background-color: $primary;
@@ -79,6 +158,7 @@ nav {
   padding: 1px;
   width: 100px;
   line-height: 6vh;
+  max-height: 6vh;
 }
 .App {
   width: 100%;
