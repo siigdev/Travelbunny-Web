@@ -4,6 +4,7 @@ import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
 import SignedInNavigation from './SignedInNavigation';
 import SignedOutNavigation from './SignedOutNavigation'
 import * as timeHelper from '../../../helpers/timeHelper'
+import * as urlHelper from '../../../helpers/urlHelper'
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +27,7 @@ class Navigation extends Component {
                 return (
                    <NavItem style={{ flex: 1, color: 'black', textAlign: 'center'}}>
                        
-                       {this.state.searchNav ? <span style={{display: "block"}}>Edit your search options:</span>: null}
+                       {this.state.searchNav && urlHelper.isFrontpage() ? <span style={{display: "block"}}>Edit your search options:</span>: null}
                        
                         <Button style={{flex: 0}} className="navigation-search-btn" onClick={this.toggleSearchNav}>
                         <div className="space-between">
@@ -38,7 +39,7 @@ class Navigation extends Component {
                             <span>{this.props.searchOptions.endDate}</span></div>
                             
                             {this.state.searchNav ? <Button className="search-icon-text-btn"><FontAwesomeIcon icon={faSearch} size="xs" /> Search trip</Button>: 
-                                <div className="search-icon"><FontAwesomeIcon icon={faSearch} size="s" /></div>
+                                <div className="search-icon"><FontAwesomeIcon icon={faSearch} size="sm" /></div>
                                 }
                         </div></Button>
                         
@@ -55,14 +56,17 @@ class Navigation extends Component {
                     <Nav className="mr-auto">
                 </Nav>
                 {this.renderSearchTopbar()}
+                {console.log(window.location.pathname)}
                 {this.props.signedIn ? <SignedInNavigation /> : <SignedOutNavigation />}
+                {this.props.reservedTime !== undefined ?
                 <Nav>
                     <NavItem className="nav-link purchase-nav-item">
                         <Link to={'/Purchase/' + (this.props.trip ? this.props.trip.id : '')}>
                             <li style={{color: 'white'}}>{timeHelper.convertSecondsToClock(this.props.counter, 'MMSS')} <FontAwesomeIcon icon={faShoppingCart} size="xs" /></li>
                         </Link>
                     </NavItem>
-                </Nav>
+                </Nav> : null
+                }
                 </Navbar.Collapse>
             </Navbar>
         )

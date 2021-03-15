@@ -98,14 +98,15 @@ nav {
   max-width: 400px;
   font-size: 13px;
   transition: max-width 1s;
-  -webkit-transition: all 0.8s ease;  
-  -moz-transition: all 0.8s ease;  
-  -o-transition: all 0.8s ease;  
-  -ms-transition: all 0.8s ease;  
-  transition: all 0.8s ease;
+  -webkit-transition: all 0.2s ease;  
+  -moz-transition: all 0.2s ease;  
+  -o-transition: all 0.2s ease;  
+  -ms-transition: all 0.2s ease;  
+  transition: all 0.2s ease;
   div:nth-child(2) {
     border-left: 1px solid $lightestGrey;
     border-right: 1px solid $lightestGrey;
+    padding: 5px 10px 5px 10px;
   }
   .search-icon {
     background-color: $primary;
@@ -134,7 +135,7 @@ nav {
   }
   .search-item-container{
     display: inline-block;
-    padding: 5px 10px 10px 5px;
+    padding: 5px 10px 5px 10px;
   }
 }
 .navigation-search-btn:hover {
@@ -143,6 +144,7 @@ nav {
 }
 .navigation-search-btn-active {
   max-width: 1500px;
+  width: 500px;
   font-size: 16px;
   height: 6vh !important;
   margin: 10px;
