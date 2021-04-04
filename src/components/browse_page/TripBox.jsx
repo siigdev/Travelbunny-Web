@@ -6,6 +6,7 @@ import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome
 import { openAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
 import { saveTripToState } from '../../actions/tripActions/tripActions'
 import { getPictureUrl } from '../../helpers/imageHelper'
+import { toPriceDecimal } from '../../helpers/currencyHelper'
 
 class TripBox extends Component {
     constructor(props) {
@@ -66,7 +67,7 @@ class TripBox extends Component {
                         </Container>
                         <Container>
                             <Container className="price-container">
-                                <h3 className="bold price-tag">{this.trip.price} DKK</h3>
+                                <h3 className="bold price-tag">{toPriceDecimal(this.trip.price)} DKK</h3>
                                 <span>/Person</span>
                             </Container>
                             <Button variant="success" onClick={this.handleReserve}>View trip</Button>

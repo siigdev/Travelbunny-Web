@@ -58,15 +58,13 @@ class Navigation extends Component {
                 {this.renderSearchTopbar()}
                 {console.log(window.location.pathname)}
                 {this.props.signedIn ? <SignedInNavigation /> : <SignedOutNavigation />}
-                {this.props.reservedTime !== undefined ?
                 <Nav>
                     <NavItem className="nav-link purchase-nav-item">
                         <Link to={'/Purchase/' + (this.props.trip ? this.props.trip.id : '')}>
                             <li style={{color: 'white'}}>{timeHelper.convertSecondsToClock(this.props.counter, 'MMSS')} <FontAwesomeIcon icon={faShoppingCart} size="xs" /></li>
                         </Link>
                     </NavItem>
-                </Nav> : null
-                }
+                </Nav>
                 </Navbar.Collapse>
             </Navbar>
         )
