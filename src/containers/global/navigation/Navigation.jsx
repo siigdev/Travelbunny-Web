@@ -56,7 +56,6 @@ class Navigation extends Component {
                     <Nav className="mr-auto">
                 </Nav>
                 {this.renderSearchTopbar()}
-                {console.log(window.location.pathname)}
                 {this.props.signedIn ? <SignedInNavigation /> : <SignedOutNavigation />}
                 <Nav>
                     <NavItem className="nav-link purchase-nav-item">

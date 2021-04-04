@@ -17,7 +17,7 @@ export default class Trip extends Component {
         this.state = {
             loading: true,
             active: 'flights',
-            hotels: this.props.location.res.Hotels
+            hotels: this.props.location.res.hotels
         }
         this.handleFlights = this.handleFlights.bind(this, true);
         this.handleHotels = this.handleHotels.bind(this, false);
@@ -72,7 +72,7 @@ export default class Trip extends Component {
             return (
                  this.state.hotels.map((hotel) => {
                      return (
-                         <HotelBox key={hotel.hotels[0].hotel_id} hotel={hotel.hotels[0]}/>
+                         <HotelBox key={hotel.hotel_id} hotel={hotel}/>
                      )
                  })
             )
