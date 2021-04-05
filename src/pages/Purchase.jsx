@@ -23,6 +23,9 @@ class Purchase extends Component {
             })
         )
     }
+    getHotelsPrice() {
+        return this.props.trip.hotels.reduce((a, b) => a + b.price, 0)
+    }
     render() {
         if (this.state.loading) {
             return (
@@ -49,7 +52,7 @@ class Purchase extends Component {
                             <span>Flights</span><span>199</span>
                         </div>
                         <div class="space-between">
-                            <span>Hotels</span><span>524</span>
+                            <span>Hotels</span><span>{toPriceDecimal(this.getHotelsPrice())}</span>
                         </div>
 
                         <hr/>
