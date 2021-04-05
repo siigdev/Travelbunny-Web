@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import Loading from '../components/global/Loading'
 import { connect } from 'react-redux';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { toPriceDecimal } from '.././helpers/currencyHelper'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendar, faSortAmountUp, faSortAmountDown, faSortNumericUp } from "@fortawesome/free-solid-svg-icons";
+import { faList, faPlane, faHotel, faMap } from "@fortawesome/free-solid-svg-icons";
 
 class Purchase extends Component {
     constructor(props) {
@@ -12,6 +13,15 @@ class Purchase extends Component {
         this.state = {
             loading: false
         }
+    }
+    renderHotels() {
+        return (
+            this.props.trip.hotels.map((hotel) => {
+                return (
+                    <p key={hotel.locationId}>{hotel.affiliate_url}</p>
+                );
+            })
+        )
     }
     render() {
         if (this.state.loading) {
@@ -24,10 +34,13 @@ class Purchase extends Component {
                 <Row>
                     <Col>
                         <Container className="sort-box">
-                            <Button variant="link"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faList} size="1x" /> Overview</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faPlane} size="1x" /> Flights</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faHotel} size="1x" /> Hotels</Button>
+                            <Button variant="link"><FontAwesomeIcon icon={faMap} size="1x" /> Attractions</Button>
+                        </Container>
+                        <Container className="purchase-content">
+                            {this.renderHotels()}
                         </Container>
                     </Col>
 
@@ -48,7 +61,7 @@ class Purchase extends Component {
                         </div>
                         <hr></hr>
                         Price for 2 People
-                        <h3>{this.props.trip.price} DKK</h3>
+                        <h3>{toPriceDecimal(this.props.trip.price)} DKK</h3>
                         <Button variant="success">Purchase trip</Button>
                     </Col>
                 </Row>
