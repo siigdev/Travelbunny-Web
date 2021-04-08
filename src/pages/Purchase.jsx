@@ -23,6 +23,10 @@ class Purchase extends Component {
             })
         )
     }
+    getFlightsPrice() {
+        console.log(this.props.trip)
+        return this.props.trip.flights.reduce((a, b) => a + b.ticketDetails.price, 0)
+    }
     getHotelsPrice() {
         return this.props.trip.hotels.reduce((a, b) => a + b.price, 0)
     }
@@ -49,7 +53,7 @@ class Purchase extends Component {
 
                     <Col className="search-settings">
                         <div class="space-between">
-                            <span>Flights</span><span>199</span>
+                            <span>Flights</span><span>{toPriceDecimal(this.getFlightsPrice())}</span>
                         </div>
                         <div class="space-between">
                             <span>Hotels</span><span>{toPriceDecimal(this.getHotelsPrice())}</span>
