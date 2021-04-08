@@ -16,8 +16,7 @@ export default class Trip extends Component {
             this.propsDefined = true
         this.state = {
             loading: true,
-            active: 'flights',
-            hotels: this.props.location.res.hotels
+            active: 'flights'
         }
         this.handleFlights = this.handleFlights.bind(this, true);
         this.handleHotels = this.handleHotels.bind(this, false);
@@ -26,7 +25,7 @@ export default class Trip extends Component {
         fetch(`https://5hulox4yxh.execute-api.eu-central-1.amazonaws.com/prod/?tripID=${this.match.params.id}`)
             .then(response => response.json())
             .then(response => {
-                this.setState({ loading: false, flights: response.tripDetails.flights })
+                this.setState({ loading: false, flights: response.tripDetails.flights, hotels: response.tripDetails.hotels })
             })
             .catch((error) => {
                 this.setState({ loading: false })
@@ -72,7 +71,7 @@ export default class Trip extends Component {
             return (
                  this.state.hotels.map((hotel) => {
                      return (
-                         <HotelBox key={hotel.hotel_id} hotel={hotel}/>
+                         <HotelBox key={hotel.id} hotel={hotel}/>
                      )
                  })
             )

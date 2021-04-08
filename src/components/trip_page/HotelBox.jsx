@@ -3,6 +3,7 @@ import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import image from '../../assets/images/testimage.png'
+import { toPriceDecimal } from '../../helpers/currencyHelper'
 
 export default class HotelBox extends Component {
     constructor(props) {
@@ -27,21 +28,21 @@ export default class HotelBox extends Component {
                     <Col className="flight-section-img"><Image src={image} /></Col>
                     <Col className="flight-section-info">
                         <Row>
-                            <h5>{this.state.hotel.hotel_info[0].hotel_data.name} </h5> <Badge pill variant="primary">
+                            <h5>{this.state.hotel.name} </h5> <Badge pill variant="primary">
                                 8.9
                         </Badge>
                         </Row>
                         <Row>
-                            <span>{this.state.hotel.hotel_info[0].hotel_data.address}, {this.state.hotel.hotel_info[0].hotel_data.city} </span>
+                            <span>{this.state.hotel.street_address}, {this.state.hotel.city} </span>
                         </Row>
                     </Col>
                     <Col className="trip-section-buy">
                         <Col style={{ textAlign: 'right' }}>
-                            {this.renderStars(this.state.hotel.hotel_info[0].hotel_data.class)}
+                            {this.renderStars(this.state.hotel.hotel_rating)}
                         </Col>
                         <Container className="price-container">
-                            <h4 className="bold price-tag">{this.state.hotel.price} {this.state.hotel.hotel_currency_code}</h4>
-                            <span>/Night</span>
+                            <h4 className="bold price-tag">{toPriceDecimal(this.state.hotel.price_total/this.state.hotel.nights_at)} {this.state.hotel.currency_code}</h4>
+                            <span>/Nights</span>
                         </Container>
                         <Button variant="dark">More details</Button>
                     </Col>
