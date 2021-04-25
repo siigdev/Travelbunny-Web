@@ -24,7 +24,7 @@ class Browse extends Component {
             initialLocation: this.match.location,
             stayLength: this.match.length,
             country: this.match.country,
-            currency: 'DKK',
+            currency: 'EUR',
             locale: 'en-US'
         })
 
