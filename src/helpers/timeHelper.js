@@ -31,3 +31,8 @@ export const convertSecondsToTimestring = (seconds) => {
     var sDisplay = s > 0 ? s + (s === 1 ? " second" : " seconds") : "";
     return `${hDisplay}  ${mDisplay}  ${sDisplay}`; 
 }
+
+export const convertDateTimeToHHMM = (datetime) => {
+    var date = new Date(datetime);
+    return `${date.getHours()}:${date.getMinutes()}`
+}
