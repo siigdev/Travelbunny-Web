@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlane, faLuggageCart, faSuitcaseRolling, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import image from '../../assets/images/testimage.png'
 import ryanair from '../../assets/images/ryanair.jpg'
+import * as timeHelper from '../../helpers/timeHelper'
 
 export default class FlightBox extends Component {
     constructor(props) {
@@ -22,17 +23,17 @@ export default class FlightBox extends Component {
                                 1 way
                         </Badge></Col>
                             <Col><Image src={ryanair} className="flight-company-icon" /> 
-                                <span>{this.flight.carrier} - FR7408</span></Col>
-                            <Col><span>{this.flight.departure_time}</span></Col>
+                                <span>{this.flight.carrier}</span></Col>
+                            <Col><span>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</span></Col>
                         </Row>
                         <Row className="center-row">
                             <Col className="no-flex-grow">
-                                <h2>05:16</h2>
+                                <h2>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</h2>
                                 {this.flight.origin}
                                 </Col>
                             <Col><FontAwesomeIcon icon={faPlane} size="2x" /></Col>
                             <Col>
-                                <h2>19:00</h2>
+                                <h2>{this.flight.arrival_time}</h2>
                                 {this.flight.destination}
                             </Col>
                         </Row>

@@ -68,7 +68,7 @@ class Purchase extends Component {
                         </div>
                         <hr></hr>
                         Price for 2 People
-                        <h3>{toPriceDecimal(this.props.trip.price)} DKK</h3>
+                        <h3>{toPriceDecimal(this.props.trip.price)} {this.trip.trip_currency_code}</h3>
                         <Button variant="success">Purchase trip</Button>
                     </Col>
                 </Row>

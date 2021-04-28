@@ -67,7 +67,7 @@ class TripBox extends Component {
                         </Container>
                         <Container>
                             <Container className="price-container">
-                                <h3 className="bold price-tag">{toPriceDecimal(this.trip.price)} DKK</h3>
+                                <h3 className="bold price-tag">{toPriceDecimal(this.trip.price)} {this.trip.trip_currency_code}</h3>
                                 <span>/Person</span>
                             </Container>
                             <Button variant="success" onClick={this.handleReserve}>View trip</Button>
