@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import image from '../../assets/images/testimage.png'
 import { toPriceDecimal } from '../../helpers/currencyHelper'
 
 export default class HotelBox extends Component {
@@ -25,7 +24,7 @@ export default class HotelBox extends Component {
         return (
             <Container className="flight-box">
                 <Row>
-                    <Col className="flight-section-img"><Image src={image} /></Col>
+                    <Col className="flight-section-img" style={{minHeight:300, minWidth: 300, maxHeight: 300, maxWidth: 300}}><Image src={this.state.hotel.photo_url} height={300} width={300} style={{minHeight:300, minWidth: 300, maxHeight: 300, maxWidth: 300}}/></Col>
                     <Col className="flight-section-info">
                         <Row>
                             <h5>{this.state.hotel.name} </h5> <Badge pill variant="primary">

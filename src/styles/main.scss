@@ -21,7 +21,7 @@ a:hover {
 }
 .loading-container {
   width: 100%;
-  min-height: 350px;
+  min-height: 500px;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -384,7 +384,8 @@ button[type=submit], button[type=cancel] {
     width: 100%;
   }
   .flight-section-img {
-    max-width: 35%;
+    width: 300px;
+    height: 300px;
   }
   .flight-section-info {
     max-width: 65%;
