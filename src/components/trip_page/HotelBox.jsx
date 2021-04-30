@@ -24,7 +24,7 @@ export default class HotelBox extends Component {
         return (
             <Container className="flight-box">
                 <Row>
-                    <Col className="flight-section-img" style={{minHeight:300, minWidth: 300, maxHeight: 300, maxWidth: 300}}><Image src={this.state.hotel.photo_url} height={300} width={300} style={{minHeight:300, minWidth: 300, maxHeight: 300, maxWidth: 300}}/></Col>
+                    <Col className="flight-section-img"><Image src={this.state.hotel.photo_url}/></Col>
                     <Col className="flight-section-info">
                         <Row>
                             <h5>{this.state.hotel.name} </h5> <Badge pill variant="primary">

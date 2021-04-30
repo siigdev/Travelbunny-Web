@@ -137,6 +137,9 @@ nav {
     display: inline-block;
     padding: 5px 10px 5px 10px;
   }
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 .navigation-search-btn:hover {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
@@ -306,9 +309,12 @@ button[type=submit], button[type=cancel] {
   margin: 50px 0 0 0;
   .map-container {
     max-width: 50%;
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
   .trip-description-container {
-    max-width: 50%;
+    width: 100%;
   }
 }
 .trip-container {
@@ -384,8 +390,7 @@ button[type=submit], button[type=cancel] {
     width: 100%;
   }
   .flight-section-img {
-    width: 300px;
-    height: 300px;
+    max-height: 100%;
   }
   .flight-section-info {
     max-width: 65%;
