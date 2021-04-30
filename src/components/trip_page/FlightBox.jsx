@@ -22,18 +22,17 @@ export default class FlightBox extends Component {
                             <Col><Badge pill variant="primary">
                                 1 way
                         </Badge></Col>
-                            <Col><Image src={ryanair} className="flight-company-icon" /> 
+                            <Col style={{textAlign: 'right'}}><Image src={ryanair} className="flight-company-icon" /> 
                                 <span>{this.flight.carrier}</span></Col>
-                            <Col><span>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</span></Col>
                         </Row>
                         <Row className="center-row">
                             <Col className="no-flex-grow">
                                 <h2>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</h2>
                                 {this.flight.origin}
                                 </Col>
-                            <Col><FontAwesomeIcon icon={faPlane} size="2x" /></Col>
+                            <Col style={{marginRight: 10, marginLeft: 10}}><FontAwesomeIcon icon={faPlane} size="2x" /></Col>
                             <Col>
-                                <h2>{this.flight.arrival_time}</h2>
+                                <h2>{timeHelper.convertDateTimeToHHMM(this.flight.arrival_time)}</h2>
                                 {this.flight.destination}
                             </Col>
                         </Row>

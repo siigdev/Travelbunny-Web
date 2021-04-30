@@ -34,5 +34,7 @@ export const convertSecondsToTimestring = (seconds) => {
 
 export const convertDateTimeToHHMM = (datetime) => {
     var date = new Date(datetime);
-    return `${date.getHours()}:${date.getMinutes()}`
+    var minutes = ('0'+date.getMinutes()).slice(-2);
+    var hours = ('0'+date.getHours()).slice(-2);
+    return `${hours}:${minutes}`
 }
