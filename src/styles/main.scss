@@ -300,6 +300,9 @@ button[type=submit], button[type=cancel] {
     }
   }
 }
+.basic-multi-select {
+  width: 100%;
+}
 .trip-page-container {
   display: flex;
   max-width: 100%;
@@ -313,6 +316,9 @@ button[type=submit], button[type=cancel] {
   .trip-description-container {
     width: 100%;
   }
+}
+.bootstrap-grey {
+  color: #6c757d;
 }
 .trip-container {
   background-color: white;

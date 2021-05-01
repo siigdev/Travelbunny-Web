@@ -2,21 +2,30 @@ import React, { Component } from 'react'
 import { Container, Row, Col, Image, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlane, faLuggageCart, faSuitcaseRolling, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import image from '../../assets/images/testimage.png'
 import ryanair from '../../assets/images/ryanair.jpg'
+import { getPictureUrl } from '../../helpers/imageHelper'
 import * as timeHelper from '../../helpers/timeHelper'
 
 export default class FlightBox extends Component {
     constructor(props) {
         super(props);
         this.flight = props.flight;
+        console.log("test1")
+        this.location = props.location;
+
+        //Remove this code when location is also sent for the initial location
+        if (this.location == undefined) {
+            console.log("test")
+            this.location = {}
+            this.location.picture = "https://locationpictures.s3.eu-central-1.amazonaws.com/Pictures/0920020715/"
+        }
     }
     render() {
         return (
 
             <Container className="flight-box">
                 <Row>
-                    <Col className="flight-section-img"><Image src={image} /></Col>
+                    <Col className="flight-section-img"><Image src={getPictureUrl(this.location.picture, 'sm')} /></Col>
                     <Col className="flight-section-info">
                         <Row>
                             <Col><Badge pill variant="primary">
