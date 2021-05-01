@@ -17,7 +17,7 @@ class TripBox extends Component {
         return this.trip.locations.map((loc, index) => {
             if (index)
                 return (
-                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}</span>
+                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}<br/></span>
             )
             else {
                 return loc.destination + ' '
