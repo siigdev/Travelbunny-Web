@@ -14,8 +14,7 @@ export default class FlightBox extends Component {
         this.location = props.location;
 
         //Remove this code when location is also sent for the initial location
-        if (this.location == undefined) {
-            console.log("test")
+        if (this.location === undefined) {
             this.location = {}
             this.location.picture = "https://locationpictures.s3.eu-central-1.amazonaws.com/Pictures/0920020715/"
         }
