@@ -15,7 +15,7 @@ class Browse extends Component {
         this.match = props.match.params;
         this.state = {
             error: '',
-            loading: false,
+            loading: true,
             price: 975
         }
     }
