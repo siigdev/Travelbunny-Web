@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Travelbunny-Web/static/css/main.c675d316.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.3f0006e5.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.3f0006e5.chunk.js.map",
+    "main.js": "/Travelbunny-Web/static/js/main.3ba54726.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.3ba54726.chunk.js.map",
     "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js",
     "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js.map",
     "static/css/2.366b30e1.chunk.css": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css",
@@ -18,7 +18,6 @@
     "static/media/4.dd415aa4.png": "/Travelbunny-Web/static/media/4.dd415aa4.png",
     "static/media/5.e2cd8841.png": "/Travelbunny-Web/static/media/5.e2cd8841.png",
     "static/media/slick-theme.scss": "/Travelbunny-Web/static/media/pyticon.e99070b2.woff",
-    "static/media/testimage.cc712322.png": "/Travelbunny-Web/static/media/testimage.cc712322.png",
     "static/media/main.scss": "/Travelbunny-Web/static/media/wallp.3fd1c7bd.jpg"
   },
   "entrypoints": [
@@ -26,6 +25,6 @@
     "static/css/2.366b30e1.chunk.css",
     "static/js/2.e4246d10.chunk.js",
     "static/css/main.c675d316.chunk.css",
-    "static/js/main.3f0006e5.chunk.js"
+    "static/js/main.3ba54726.chunk.js"
   ]
 }
