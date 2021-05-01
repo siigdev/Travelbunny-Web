@@ -47,8 +47,8 @@ class TripBox extends Component {
                     <Col className="trip-section-info">
                         <h4>{this.getTotalStayLength()} Days | {this.getAmountOfCities()} Cities</h4>
                         <span>DESTINATIONS</span><br />
-                        <span style={{fontSize: 11}}><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
-                        <div>
+                        <span style={{fontSize: 14}} ><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
+                        <div style={{marginTop: 20}}>
                             <Badge pill variant="secondary">
                                 Family
                             </Badge>

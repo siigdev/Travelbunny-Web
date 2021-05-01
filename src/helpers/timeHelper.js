@@ -38,3 +38,10 @@ export const convertDateTimeToHHMM = (datetime) => {
     var hours = ('0'+date.getHours()).slice(-2);
     return `${hours}:${minutes}`
 }
+export const convertDateTimeToDDMMYYYY = (datetime) => {
+    var date = new Date(datetime);
+    var day = ('0'+date.getDate()).slice(-2);
+    var month = ('0'+date.getMonth()).slice(-2);
+    var year = date.getFullYear();
+    return `${day}-${month}-${year}`
+}

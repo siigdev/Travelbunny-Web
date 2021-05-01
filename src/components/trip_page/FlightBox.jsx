@@ -22,6 +22,7 @@ export default class FlightBox extends Component {
                             <Col><Badge pill variant="primary">
                                 1 way
                         </Badge></Col>
+                        <Col style={{textAlign: 'center'}}>{timeHelper.convertDateTimeToDDMMYYYY(this.flight.departure_time)}</Col>
                             <Col style={{textAlign: 'right'}}><Image src={ryanair} className="flight-company-icon" /> 
                                 <span>{this.flight.carrier}</span></Col>
                         </Row>
