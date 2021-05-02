@@ -25,6 +25,13 @@ class TripBox extends Component {
         });
     }
 
+    renderTags = () => {
+        if(this.trip.tags !== undefined && this.trip.tags !== null && this.trip.tags.length > 0) {
+            return this.trip.tags.map((tag, index) => {
+                <Badge pill variant="secondary" key={index}>{tag}</Badge>
+            }) 
+        }
+    }
     getTotalStayLength = () => {
         return (
             this.trip.locations.reduce((sum, b) => sum + b.stayLength, 0)
@@ -49,15 +56,7 @@ class TripBox extends Component {
                         <span>DESTINATIONS</span><br />
                         <span style={{fontSize: 14}} ><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
                         <div style={{marginTop: 20}}>
-                            <Badge pill variant="secondary">
-                                Family
-                            </Badge>
-                            <Badge pill variant="secondary">
-                                Attraction
-                            </Badge>
-                            <Badge pill variant="secondary">
-                                History
-                        </Badge>
+                            {this.renderTags()}
                         </div>
                     </Col>
                     <Col className="trip-section-buy">

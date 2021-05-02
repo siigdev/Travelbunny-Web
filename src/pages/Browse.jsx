@@ -96,6 +96,7 @@ class Browse extends Component {
                         <InputGroup className="mb-2">
                             <Select
                             defaultValue={[]}
+                            placeholder={'Destinations'}
                             isMulti
                             name="destinations"
                             id="search-destination"
