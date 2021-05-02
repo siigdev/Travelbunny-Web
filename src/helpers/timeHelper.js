@@ -41,7 +41,7 @@ export const convertDateTimeToHHMM = (datetime) => {
 export const convertDateTimeToDDMMYYYY = (datetime) => {
     var date = new Date(datetime);
     var day = ('0'+date.getDate()).slice(-2);
-    var month = ('0'+date.getMonth()).slice(-2);
+    var month = ('0'+(date.getMonth() + 1)).slice(-2); //getMonth counting from 0
     var year = date.getFullYear();
     return `${day}-${month}-${year}`
 }
