@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import Loading from '../components/global/Loading'
+import LoadingTripGeneration from '../components/global/LoadingTripGeneration/LoadingTripGeneration'
 import TripBox from '../components/browse_page/TripBox'
 import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
 import { saveTripsToState } from '../actions/tripActions/tripActions';
@@ -69,7 +69,7 @@ class Browse extends Component {
     render() {
         if (this.state.loading) {
             return (
-                <Loading />
+                <LoadingTripGeneration />
             )
         }
         return (
