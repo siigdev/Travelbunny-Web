@@ -23,6 +23,11 @@ export default class LoadingTripGeneration extends Component {
             <Container className="loading-trip-generation-container">
             <Slider ref={slider => (this.slider = slider)} {...settings}>
               <div>
+
+
+
+
+
                   <img src="https://locationpictures.s3.eu-central-1.amazonaws.com/Pictures/0920020715/188160.png"/>
                 <h4>Analyzing cities...</h4>
               </div>
