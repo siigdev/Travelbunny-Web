@@ -1,5 +1,5 @@
 export const isFrontpage = () => {
-    if (window.location.pathname !== '/Travelbunny-Web')
+    if (window.location.pathname !== '/')
         return true;
     return false;
 }
