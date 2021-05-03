@@ -12,11 +12,11 @@ export default class TripBox extends Component {
     }
     renderDestinations = () => {
         return this.trip.locations.map((loc, index) => {
-            if (index)
-                return (
-                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}<br/></span>
-            )
-            else {
+            if(index && index !== this.trip.locations.length-1) {
+                    return (
+                    <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}<br/></span>
+                )
+            } else if (!index && index !== this.trip.locations.length-1){
                 return loc.destination + ' '
             }
         });
@@ -37,7 +37,7 @@ export default class TripBox extends Component {
     }
     getAmountOfCities = () => {
         return (
-            this.trip.locations.length
+            this.trip.locations.length-1
         )
     }
     render() {
