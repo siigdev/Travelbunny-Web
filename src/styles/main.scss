@@ -21,7 +21,7 @@ a:hover {
 }
 .loading-container {
   width: 100%;
-  min-height: 350px;
+  min-height: 500px;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -32,6 +32,28 @@ a:hover {
   .spinner-border {
     height: 50px;
     width: 50px;
+  }
+}
+.loading-trip-generation-container {
+  width: 100%;
+  min-height: 50vh;
+  display: block;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
   }
 }
 footer {
@@ -283,7 +305,7 @@ button[type=submit], button[type=cancel] {
     border: 1px solid lightgrey;
     text-align: left;
     color: #444;
-    margin: 75px 0px 8px 10px;
+    margin: 75px 0px 8px 10px;  
     padding: 15px;
     height:100%;
     .form-check {
@@ -300,16 +322,25 @@ button[type=submit], button[type=cancel] {
     }
   }
 }
+.basic-multi-select {
+  width: 100%;
+}
 .trip-page-container {
   display: flex;
   max-width: 100%;
   margin: 50px 0 0 0;
   .map-container {
     max-width: 50%;
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
   .trip-description-container {
-    max-width: 50%;
+    width: 100%;
   }
+}
+.bootstrap-grey {
+  color: #6c757d;
 }
 .trip-container {
   background-color: white;
@@ -384,7 +415,7 @@ button[type=submit], button[type=cancel] {
     width: 100%;
   }
   .flight-section-img {
-    max-width: 35%;
+    max-height: 100%;
   }
   .flight-section-info {
     max-width: 65%;

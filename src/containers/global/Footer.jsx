@@ -41,7 +41,7 @@ const Footer = () => (
     <Container className="footer-copyright">
       <Row>
         <Col>
-          <p>© 2020 Copyright:
+          <p>© {new Date().getFullYear()} Copyright:
             <a href="https://trype.com/">
               <strong> Trype.com</strong>
             </a>

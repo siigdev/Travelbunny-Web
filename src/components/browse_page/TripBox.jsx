@@ -17,7 +17,7 @@ class TripBox extends Component {
         return this.trip.locations.map((loc, index) => {
             if (index)
                 return (
-                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}</span>
+                <span key={loc.locationId} className="inline-block"><FontAwesomeIcon icon={faChevronRight} size="xs" />{ ' ' }{loc.destination}<br/></span>
             )
             else {
                 return loc.destination + ' '
@@ -25,6 +25,14 @@ class TripBox extends Component {
         });
     }
 
+    renderTags = () => {
+        if(this.trip.tags !== undefined && this.trip.tags !== null && this.trip.tags.length > 0) {
+            this.trip.tags.sort( () => .5 - Math.random() ) //Shuffle the array
+            return this.trip.tags.map((tag, index) => {
+                return <Badge pill variant="secondary" key={index}>{tag}</Badge>
+            }) 
+        }
+    }
     getTotalStayLength = () => {
         return (
             this.trip.locations.reduce((sum, b) => sum + b.stayLength, 0)
@@ -47,17 +55,9 @@ class TripBox extends Component {
                     <Col className="trip-section-info">
                         <h4>{this.getTotalStayLength()} Days | {this.getAmountOfCities()} Cities</h4>
                         <span>DESTINATIONS</span><br />
-                        <span style={{fontSize: 11}}><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
-                        <div>
-                            <Badge pill variant="secondary">
-                                Family
-                            </Badge>
-                            <Badge pill variant="secondary">
-                                Attraction
-                            </Badge>
-                            <Badge pill variant="secondary">
-                                History
-                        </Badge>
+                        <span style={{fontSize: 14}} ><FontAwesomeIcon icon={faRoute} /> {this.renderDestinations()}</span>
+                        <div style={{marginTop: 20}}>
+                            {this.renderTags()}
                         </div>
                     </Col>
                     <Col className="trip-section-buy">

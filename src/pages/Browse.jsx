@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import Loading from '../components/global/Loading'
+import LoadingTripGeneration from '../components/global/LoadingTripGeneration/LoadingTripGeneration'
 import TripBox from '../components/browse_page/TripBox'
 import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
 import { saveTripsToState } from '../actions/tripActions/tripActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faSortAmountUp, faSortAmountDown, faSortNumericUp, faSearch, faDollarSign, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import cities from '../constants/cities';
+import Select, { components } from 'react-select';
 
 class Browse extends Component {
     constructor(props) {
@@ -67,7 +69,7 @@ class Browse extends Component {
     render() {
         if (this.state.loading) {
             return (
-                <Loading />
+                <LoadingTripGeneration />
             )
         }
         return (
@@ -92,10 +94,18 @@ class Browse extends Component {
                             </InputGroup.Append>
                         </InputGroup>
                         <InputGroup className="mb-2">
-                            <FormControl id="search-destination" placeholder="Destination" />
-                            <InputGroup.Append>
-                                <InputGroup.Text><FontAwesomeIcon icon={faGlobe} size="1x" /></InputGroup.Text>
-                            </InputGroup.Append>
+                            <Select
+                            defaultValue={[]}
+                            placeholder={'Destinations'}
+                            isMulti
+                            name="destinations"
+                            id="search-destination"
+                            options={cities}
+                            components={{ DropdownIndicator }}
+                            className="basic-multi-select"
+                            classNamePrefix="select"
+                            styles={{indicatorSeparator: (styles) => ({height: '100%', borderLeft: '1px solid #ced4da'})}}
+                        />
                         </InputGroup>
                         <InputGroup className="mb-2">
                             <FormControl id="search-date" placeholder="Date" />
@@ -129,6 +139,16 @@ class Browse extends Component {
         )
     }
 }
+const CaretDownIcon = () => {
+    return <FontAwesomeIcon icon={faGlobe} size="1x" className="bootstrap-grey" style={{marginLeft: "3px", marginRight: "3px"}}/>;
+  };
+const DropdownIndicator = props => {
+    return (
+      <components.DropdownIndicator {...props} >
+        <CaretDownIcon />
+      </components.DropdownIndicator>
+    );
+  };
 
 const mapStateToProps = (state) => {
     return {

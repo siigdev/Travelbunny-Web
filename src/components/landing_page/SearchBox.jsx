@@ -8,7 +8,7 @@ import cities from '../../constants/cities';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { saveSearchoptions } from '../../actions/tripActions/tripActions'
 
-
+const citiesList = cities.map(x => x.value);
 class SearchBox extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +21,7 @@ class SearchBox extends Component {
             locale: 'en-US',
             currency: 'CNY'
         }
+        
     }
     searchTrip() {
         //Format datetimes: 'YYYY-MM-DD'
@@ -58,7 +59,7 @@ class SearchBox extends Component {
                                 labelKey="name"
                                 className="mx-sm-2"
                                 onChange={(event) => this.setState({ city: event[0] })}
-                                options={cities}
+                                options={citiesList}
                                 placeholder="Select your location"
                                 />
                             
