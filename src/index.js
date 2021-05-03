@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
+//Please delete once it works
+console.log("Hello from the new deployment!")
 const store = createStore(
   rootReducer, 
   composeEnhancers(applyMiddleware(thunk))
