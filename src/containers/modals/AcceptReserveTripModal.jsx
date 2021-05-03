@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom';
 import { Button, Modal, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reserveTrip } from '../../actions/tripActions/tripActions'
 import { closeAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
 
 class AcceptReserveTripModal extends Component {
+    constructor(props){
+        super(props)
+        console.log(this.props)
+    }
     handleSubmit = (e) => {
         this.props.closeAcceptReserveTripModal();
         this.props.reserveTrip()
+        this.props.history.push({
+            pathname: '/Purchase/' + this.props.trip.id
+        })
     }
     handleClose = () => {
         this.props.closeAcceptReserveTripModal();
@@ -42,7 +50,8 @@ class AcceptReserveTripModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        AcceptReserveTripModal: state.modals.acceptReserveTripModal
+        AcceptReserveTripModal: state.modals.acceptReserveTripModal,
+        trip: state.trip.trip
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -51,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
         closeAcceptReserveTripModal: () => dispatch(closeAcceptReserveTripModal())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(AcceptReserveTripModal)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AcceptReserveTripModal))

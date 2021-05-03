@@ -10,7 +10,6 @@ export default class FlightBox extends Component {
     constructor(props) {
         super(props);
         this.flight = props.flight;
-        console.log("test1")
         this.location = props.location;
 
         //Remove this code when location is also sent for the initial location

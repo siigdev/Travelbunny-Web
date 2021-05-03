@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
 import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRoute, faChevronRight, faCalendar, faUserFriends } from "@fortawesome/free-solid-svg-icons";
-import { openAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
-import { saveTripToState } from '../../actions/tripActions/tripActions'
 import { getPictureUrl } from '../../helpers/imageHelper'
 import { toPriceDecimal } from '../../helpers/currencyHelper'
 
-class TripBox extends Component {
+export default class TripBox extends Component {
     constructor(props) {
         super(props);
         this.trip = props.trip;
@@ -43,10 +40,6 @@ class TripBox extends Component {
             this.trip.locations.length
         )
     }
-    handleReserve = (e) => {
-        this.props.saveTripToState(this.trip)
-        this.props.openAcceptReserveTripModal(this.trip)
-    }
     render() {
         return (
             <Container className="trip-container">
@@ -70,7 +63,7 @@ class TripBox extends Component {
                                 <h3 className="bold price-tag">{toPriceDecimal(this.trip.price)} {this.trip.trip_currency_code}</h3>
                                 <span>/Person</span>
                             </Container>
-                            <Button variant="success" onClick={this.handleReserve}>View trip</Button>
+                            <Button variant="success">View trip</Button>
                         </Container>
                     </Col>
                 </Row>
@@ -78,11 +71,3 @@ class TripBox extends Component {
         )
     }
 }
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        saveTripToState: (trip) => dispatch(saveTripToState(trip)),
-        openAcceptReserveTripModal: (trip) => dispatch(openAcceptReserveTripModal(trip))
-    }
-}
-export default connect(null, mapDispatchToProps)(TripBox)

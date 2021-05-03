@@ -16,6 +16,7 @@ class Navigation extends Component {
             searchNav: false,
         }
         this.toggleSearchNav = this.toggleSearchNav.bind(this);
+        console.log(this.props)
     }
     toggleSearchNav() {
         var box = document.querySelector(".navigation-search-btn");
@@ -74,7 +75,7 @@ const mapStateToProps = (state) => {
         signedIn: state.auth.signedIn,
         reservedTime: state.trip.reservedTime,
         counter: state.trip.timer.counter,
-        trip: state.trip.trip,
+        trip: state.trip,
         searchOptions: state.trip.searchOptions
     }
 }
