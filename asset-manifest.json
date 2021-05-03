@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/Travelbunny-Web/static/css/main.9924ec64.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.4de38a55.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.4de38a55.chunk.js.map",
-    "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js",
-    "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js.map",
-    "static/css/2.366b30e1.chunk.css": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css",
-    "static/js/2.a356c85f.chunk.js": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js",
-    "static/js/2.a356c85f.chunk.js.map": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js.map",
-    "index.html": "/Travelbunny-Web/index.html",
-    "static/css/2.366b30e1.chunk.css.map": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css.map",
-    "static/css/main.9924ec64.chunk.css.map": "/Travelbunny-Web/static/css/main.9924ec64.chunk.css.map",
-    "static/js/2.a356c85f.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js.LICENSE.txt",
-    "static/media/1.24652602.png": "/Travelbunny-Web/static/media/1.24652602.png",
-    "static/media/2.202b6645.png": "/Travelbunny-Web/static/media/2.202b6645.png",
-    "static/media/3.5368790b.png": "/Travelbunny-Web/static/media/3.5368790b.png",
-    "static/media/4.dd415aa4.png": "/Travelbunny-Web/static/media/4.dd415aa4.png",
-    "static/media/5.e2cd8841.png": "/Travelbunny-Web/static/media/5.e2cd8841.png",
-    "static/media/slick-theme.scss": "/Travelbunny-Web/static/media/pyticon.e99070b2.woff",
-    "static/media/main.scss": "/Travelbunny-Web/static/media/wallp.3fd1c7bd.jpg"
+    "main.css": "/static/css/main.d672c4f7.chunk.css",
+    "main.js": "/static/js/main.97f90d36.chunk.js",
+    "main.js.map": "/static/js/main.97f90d36.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e71509cd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e71509cd.js.map",
+    "static/css/2.366b30e1.chunk.css": "/static/css/2.366b30e1.chunk.css",
+    "static/js/2.fcb92a31.chunk.js": "/static/js/2.fcb92a31.chunk.js",
+    "static/js/2.fcb92a31.chunk.js.map": "/static/js/2.fcb92a31.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.366b30e1.chunk.css.map": "/static/css/2.366b30e1.chunk.css.map",
+    "static/css/main.d672c4f7.chunk.css.map": "/static/css/main.d672c4f7.chunk.css.map",
+    "static/js/2.fcb92a31.chunk.js.LICENSE.txt": "/static/js/2.fcb92a31.chunk.js.LICENSE.txt",
+    "static/media/1.24652602.png": "/static/media/1.24652602.png",
+    "static/media/2.202b6645.png": "/static/media/2.202b6645.png",
+    "static/media/3.5368790b.png": "/static/media/3.5368790b.png",
+    "static/media/4.dd415aa4.png": "/static/media/4.dd415aa4.png",
+    "static/media/5.e2cd8841.png": "/static/media/5.e2cd8841.png",
+    "static/media/slick-theme.scss": "/static/media/pyticon.e99070b2.woff",
+    "static/media/main.scss": "/static/media/wallp.3fd1c7bd.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ed02c635.js",
+    "static/js/runtime-main.e71509cd.js",
     "static/css/2.366b30e1.chunk.css",
-    "static/js/2.a356c85f.chunk.js",
-    "static/css/main.9924ec64.chunk.css",
-    "static/js/main.4de38a55.chunk.js"
+    "static/js/2.fcb92a31.chunk.js",
+    "static/css/main.d672c4f7.chunk.css",
+    "static/js/main.97f90d36.chunk.js"
   ]
 }
