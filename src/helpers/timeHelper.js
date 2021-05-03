@@ -34,5 +34,14 @@ export const convertSecondsToTimestring = (seconds) => {
 
 export const convertDateTimeToHHMM = (datetime) => {
     var date = new Date(datetime);
-    return `${date.getHours()}:${date.getMinutes()}`
+    var minutes = ('0'+date.getMinutes()).slice(-2);
+    var hours = ('0'+date.getHours()).slice(-2);
+    return `${hours}:${minutes}`
+}
+export const convertDateTimeToDDMMYYYY = (datetime) => {
+    var date = new Date(datetime);
+    var day = ('0'+date.getDate()).slice(-2);
+    var month = ('0'+(date.getMonth() + 1)).slice(-2); //getMonth counting from 0
+    var year = date.getFullYear();
+    return `${day}-${month}-${year}`
 }

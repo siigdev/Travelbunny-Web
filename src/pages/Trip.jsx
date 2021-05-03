@@ -25,7 +25,7 @@ export default class Trip extends Component {
         fetch(`https://5hulox4yxh.execute-api.eu-central-1.amazonaws.com/prod/?tripID=${this.match.params.id}`)
             .then(response => response.json())
             .then(response => {
-                this.setState({ loading: false, flights: response.tripDetails.flights, hotels: response.tripDetails.hotels })
+                this.setState({ loading: false, flights: response.tripDetails.flights, hotels: response.tripDetails.hotels, locations: response.tripDetails.locations })
             })
             .catch((error) => {
                 this.setState({ loading: false })
@@ -51,9 +51,9 @@ export default class Trip extends Component {
         }
         else
             return (
-                this.state.flights.map((flight) => {
+                this.state.flights.map((flight, index) => {
                     return (
-                        <FlightBox key={flight.id} flight={flight} />
+                        <FlightBox key={flight.id} flight={flight} location={this.state.locations[index]} />
                     );
                 })
             )

@@ -2,38 +2,46 @@ import React, { Component } from 'react'
 import { Container, Row, Col, Image, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlane, faLuggageCart, faSuitcaseRolling, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import image from '../../assets/images/testimage.png'
 import ryanair from '../../assets/images/ryanair.jpg'
+import { getPictureUrl } from '../../helpers/imageHelper'
 import * as timeHelper from '../../helpers/timeHelper'
 
 export default class FlightBox extends Component {
     constructor(props) {
         super(props);
         this.flight = props.flight;
+        console.log("test1")
+        this.location = props.location;
+
+        //Remove this code when location is also sent for the initial location
+        if (this.location === undefined) {
+            this.location = {}
+            this.location.picture = "https://locationpictures.s3.eu-central-1.amazonaws.com/Pictures/0920020715/"
+        }
     }
     render() {
         return (
 
             <Container className="flight-box">
                 <Row>
-                    <Col className="flight-section-img"><Image src={image} /></Col>
+                    <Col className="flight-section-img"><Image src={getPictureUrl(this.location.picture, 'sm')} /></Col>
                     <Col className="flight-section-info">
                         <Row>
                             <Col><Badge pill variant="primary">
                                 1 way
                         </Badge></Col>
-                            <Col><Image src={ryanair} className="flight-company-icon" /> 
+                        <Col style={{textAlign: 'center'}}>{timeHelper.convertDateTimeToDDMMYYYY(this.flight.departure_time)}</Col>
+                            <Col style={{textAlign: 'right'}}><Image src={ryanair} className="flight-company-icon" /> 
                                 <span>{this.flight.carrier}</span></Col>
-                            <Col><span>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</span></Col>
                         </Row>
                         <Row className="center-row">
                             <Col className="no-flex-grow">
                                 <h2>{timeHelper.convertDateTimeToHHMM(this.flight.departure_time)}</h2>
                                 {this.flight.origin}
                                 </Col>
-                            <Col><FontAwesomeIcon icon={faPlane} size="2x" /></Col>
+                            <Col style={{marginRight: 10, marginLeft: 10}}><FontAwesomeIcon icon={faPlane} size="2x" /></Col>
                             <Col>
-                                <h2>{this.flight.arrival_time}</h2>
+                                <h2>{timeHelper.convertDateTimeToHHMM(this.flight.arrival_time)}</h2>
                                 {this.flight.destination}
                             </Col>
                         </Row>
