@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom';
 import { Button, Modal, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reserveTrip } from '../../actions/tripActions/tripActions'
@@ -8,7 +7,6 @@ import { closeAcceptReserveTripModal } from '../../actions/modalActions/modalAct
 class AcceptReserveTripModal extends Component {
     constructor(props){
         super(props)
-        console.log(this.props)
     }
     handleSubmit = (e) => {
         this.props.closeAcceptReserveTripModal();
@@ -60,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
         closeAcceptReserveTripModal: () => dispatch(closeAcceptReserveTripModal())
     }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AcceptReserveTripModal))
+export default connect(mapStateToProps, mapDispatchToProps)(AcceptReserveTripModal)

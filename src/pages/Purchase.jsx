@@ -13,7 +13,6 @@ class Purchase extends Component {
         this.state = {
             loading: false
         }
-        console.log(this.props)
     }
     renderHotels() {
         if(this.props.trip != null && this.props.trip.hotels !== undefined && this.props.trip.hotels !== null && this.props.trip.hotels.length > 0) {

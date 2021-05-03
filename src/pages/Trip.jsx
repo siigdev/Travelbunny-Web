@@ -88,7 +88,6 @@ class Trip extends Component {
     }
 
     handleReserve = (e) => {
-        console.log(this.state.trip)
         this.props.openAcceptReserveTripModal(this.state.trip)
     }
     

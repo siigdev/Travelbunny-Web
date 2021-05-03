@@ -16,7 +16,6 @@ class Navigation extends Component {
             searchNav: false,
         }
         this.toggleSearchNav = this.toggleSearchNav.bind(this);
-        console.log(this.props)
     }
     toggleSearchNav() {
         var box = document.querySelector(".navigation-search-btn");
