@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import Loading from '../components/global/Loading'
 import Map from '../components/trip_page/Map'
+import { connect } from 'react-redux';
 import FlightBox from '../components/trip_page/FlightBox'
 import HotelBox from '../components/trip_page/HotelBox'
 import { Container, Alert, Button } from 'react-bootstrap';
-
+import { openAcceptReserveTripModal } from '../actions/modalActions/modalActions'
+import { saveTripToState } from '../actions/tripActions/tripActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlaneDeparture, faHotel, faGlobe, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default class Trip extends Component {
+class Trip extends Component {
     constructor(props) {
         super(props);
         this.match = props.match;
@@ -25,7 +27,7 @@ export default class Trip extends Component {
         fetch(`https://5hulox4yxh.execute-api.eu-central-1.amazonaws.com/prod/?tripID=${this.match.params.id}`)
             .then(response => response.json())
             .then(response => {
-                this.setState({ loading: false, flights: response.tripDetails.flights, hotels: response.tripDetails.hotels, locations: response.tripDetails.locations })
+                this.setState({ loading: false, trip: response.tripDetails, flights: response.tripDetails.flights, hotels: response.tripDetails.hotels, locations: response.tripDetails.locations })
             })
             .catch((error) => {
                 this.setState({ loading: false })
@@ -84,6 +86,11 @@ export default class Trip extends Component {
     handleHotels() {
         this.setState({active: 'hotels'})
     }
+
+    handleReserve = (e) => {
+        console.log(this.state.trip)
+        this.props.openAcceptReserveTripModal(this.state.trip)
+    }
     
     render() {
         if (this.state.loading) {
@@ -100,6 +107,7 @@ export default class Trip extends Component {
                         <Button variant="link"><FontAwesomeIcon icon={faGlobe} size="1x" /> Attractions</Button>
                         <Button variant="link"><FontAwesomeIcon icon={faInfoCircle} size="1x" /> Information</Button>
                     </Container>
+                    <Button variant="success" onClick={this.handleReserve}>Reserve the trip</Button>
                     {this.state.active === 'flights' ?
                         <Container className="flight-container">
                             {this.renderFlights()}
@@ -119,3 +127,10 @@ export default class Trip extends Component {
 }
 
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveTripToState: (trip) => dispatch(saveTripToState(trip)),
+        openAcceptReserveTripModal: (trip) => dispatch(openAcceptReserveTripModal(trip))
+    }
+}
+export default connect(null, mapDispatchToProps)(Trip)

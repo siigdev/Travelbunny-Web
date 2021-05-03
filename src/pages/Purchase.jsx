@@ -13,18 +13,39 @@ class Purchase extends Component {
         this.state = {
             loading: false
         }
+        console.log(this.props)
     }
     renderHotels() {
-        return (
-            this.props.trip.hotels.map((hotel) => {
-                return (
-                    <p key={hotel.locationId}>{hotel.affiliate_url}</p>
-                );
-            })
-        )
+        if(this.props.trip != null && this.props.trip.hotels !== undefined && this.props.trip.hotels !== null && this.props.trip.hotels.length > 0) {
+            return (
+                this.props.trip.hotels.map((hotel) => {
+                    return (
+                        <p key={hotel.locationId}>{hotel.affiliate_url}</p>
+                    );
+                })
+            )
+        } else {
+            return (
+                <p>No hotels found</p>
+            )
+        }
+    }
+    renderFlights() {
+        if(this.props.trip != null && this.props.trip.flights !== undefined && this.props.trip.flights !== null && this.props.trip.flights.length > 0) {
+            return (
+                this.props.trip.flights.map((flight) => {
+                    return (
+                        <p key={flight.id}>{flight.url}</p>
+                    );
+                })
+            )
+        } else {
+            return (
+                <p>No flights found</p>
+            )
+        }
     }
     getFlightsPrice() {
-        console.log(this.props.trip)
         return this.props.trip.flights.reduce((a, b) => a + b.ticketDetails.price, 0)
     }
     getHotelsPrice() {
@@ -47,28 +68,31 @@ class Purchase extends Component {
                             <Button variant="link"><FontAwesomeIcon icon={faMap} size="1x" /> Attractions</Button>
                         </Container>
                         <Container className="purchase-content">
+                            <h1>Hotels</h1>
                             {this.renderHotels()}
+                            <h1>Flights</h1>
+                            {this.renderFlights()}
                         </Container>
                     </Col>
 
                     <Col className="search-settings">
-                        <div class="space-between">
+                        <div className="space-between">
                             <span>Flights</span><span>{toPriceDecimal(this.getFlightsPrice())}</span>
                         </div>
-                        <div class="space-between">
+                        <div className="space-between">
                             <span>Hotels</span><span>{toPriceDecimal(this.getHotelsPrice())}</span>
                         </div>
 
                         <hr/>
-                        <div class="space-between">
+                        <div className="space-between">
                             <span>Taxes</span><span>1045</span>
                         </div>
-                        <div class="space-between">
+                        <div className="space-between">
                             <span>Transaction Fee</span><span>1045</span>
                         </div>
                         <hr></hr>
                         Price for 2 People
-                        <h3>{toPriceDecimal(this.props.trip.price)} {this.trip.trip_currency_code}</h3>
+                        <h3>{toPriceDecimal(this.props.trip.price)} {this.props.trip.trip_currency_code}</h3>
                         <Button variant="success">Purchase trip</Button>
                     </Col>
                 </Row>
