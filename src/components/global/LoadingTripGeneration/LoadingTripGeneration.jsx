@@ -2,19 +2,15 @@ import React, { Component} from 'react'
 import '../LoadingTripGeneration/LoadingTripGeneration.scss';
 import Slider from 'react-slick';
 import { Container } from 'react-bootstrap';
-import { string } from 'prop-types';
 
 
 export default class LoadingTripGeneration extends Component {
-    constructor(props) {
-        super(props);
-      }
       generateLoadingExpressions() {
         var city = loadingCities[Math.floor(Math.random() * loadingCities.length)];
         var expression = loadingExpressions[Math.floor(Math.random() * loadingExpressions.length)];
         return (
             <div>
-                <img src={city.url}/>
+                <img alt="" src={city.url}/>
                 <h5>{expression} {city.city}...</h5>
             </div>)
       }
