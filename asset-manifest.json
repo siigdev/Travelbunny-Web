@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Travelbunny-Web/static/css/main.9924ec64.chunk.css",
-    "main.js": "/Travelbunny-Web/static/js/main.4f336b6b.chunk.js",
-    "main.js.map": "/Travelbunny-Web/static/js/main.4f336b6b.chunk.js.map",
+    "main.js": "/Travelbunny-Web/static/js/main.4de38a55.chunk.js",
+    "main.js.map": "/Travelbunny-Web/static/js/main.4de38a55.chunk.js.map",
     "runtime-main.js": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js",
     "runtime-main.js.map": "/Travelbunny-Web/static/js/runtime-main.ed02c635.js.map",
     "static/css/2.366b30e1.chunk.css": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css",
-    "static/js/2.dd627585.chunk.js": "/Travelbunny-Web/static/js/2.dd627585.chunk.js",
-    "static/js/2.dd627585.chunk.js.map": "/Travelbunny-Web/static/js/2.dd627585.chunk.js.map",
+    "static/js/2.a356c85f.chunk.js": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js",
+    "static/js/2.a356c85f.chunk.js.map": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js.map",
     "index.html": "/Travelbunny-Web/index.html",
     "static/css/2.366b30e1.chunk.css.map": "/Travelbunny-Web/static/css/2.366b30e1.chunk.css.map",
     "static/css/main.9924ec64.chunk.css.map": "/Travelbunny-Web/static/css/main.9924ec64.chunk.css.map",
-    "static/js/2.dd627585.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.dd627585.chunk.js.LICENSE.txt",
+    "static/js/2.a356c85f.chunk.js.LICENSE.txt": "/Travelbunny-Web/static/js/2.a356c85f.chunk.js.LICENSE.txt",
     "static/media/1.24652602.png": "/Travelbunny-Web/static/media/1.24652602.png",
     "static/media/2.202b6645.png": "/Travelbunny-Web/static/media/2.202b6645.png",
     "static/media/3.5368790b.png": "/Travelbunny-Web/static/media/3.5368790b.png",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.ed02c635.js",
     "static/css/2.366b30e1.chunk.css",
-    "static/js/2.dd627585.chunk.js",
+    "static/js/2.a356c85f.chunk.js",
     "static/css/main.9924ec64.chunk.css",
-    "static/js/main.4f336b6b.chunk.js"
+    "static/js/main.4de38a55.chunk.js"
   ]
 }
