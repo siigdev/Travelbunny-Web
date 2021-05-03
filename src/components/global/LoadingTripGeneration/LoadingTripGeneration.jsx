@@ -9,9 +9,8 @@ export default class LoadingTripGeneration extends Component {
         var city = loadingCities[Math.floor(Math.random() * loadingCities.length)];
         var expression = loadingExpressions[Math.floor(Math.random() * loadingExpressions.length)];
         return (
-            <div
+            <div>
                 <img src={city.url} width="150" height="150"/>
-                <img alt="" src={city.url}/>
                 <h5>{expression} {city.city}...</h5>
             </div>)
       }
