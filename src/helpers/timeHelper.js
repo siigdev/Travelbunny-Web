@@ -45,3 +45,9 @@ export const convertDateTimeToDDMMYYYY = (datetime) => {
     var year = date.getFullYear();
     return `${day}-${month}-${year}`
 }
+export const converDateToYYYYMMDD = (date) => {
+    var day = ('0'+date.getDate()).slice(-2);
+    var month = ('0'+(date.getMonth() + 1)).slice(-2); //getMonth counting from 0
+    var year = date.getFullYear();
+    return `${year}-${month}-${day}`
+}

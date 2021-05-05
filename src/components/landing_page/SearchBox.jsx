@@ -6,7 +6,6 @@ import { InputGroup, Button, Container, Col, Form } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import cities from '../../constants/cities';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import { saveSearchoptions } from '../../actions/tripActions/tripActions'
 
 const citiesList = cities.map(x => x.value);
 class SearchBox extends Component {
@@ -28,7 +27,6 @@ class SearchBox extends Component {
         let startDate = this.state.startDate.toISOString().slice(0, 10);
         let endDate = this.state.endDate.toISOString().slice(0, 10);
 
-        this.props.saveSearchoptions(this.state.stayLength, this.state.city, startDate, endDate);
         this.props.history.push({
             pathname: `/Browse/${startDate}/${endDate}/${this.state.city}/${this.state.stayLength}/${this.state.country}/`,
             res: "response",
@@ -98,9 +96,4 @@ class SearchBox extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        saveSearchoptions: (tripLengthState, departureState, startDate, endDate) => dispatch(saveSearchoptions(tripLengthState, departureState, startDate, endDate))
-    }
-  }
-export default connect(null, mapDispatchToProps)(withRouter(SearchBox))
+export default withRouter(SearchBox)

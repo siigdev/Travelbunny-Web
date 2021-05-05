@@ -24,7 +24,6 @@ export default class TripBox extends Component {
 
     renderTags = () => {
         if(this.trip.tags !== undefined && this.trip.tags !== null && this.trip.tags.length > 0) {
-            this.trip.tags.sort( () => .5 - Math.random() ) //Shuffle the array
             return this.trip.tags.map((tag, index) => {
                 return <Badge pill variant="secondary" key={index}>{tag}</Badge>
             }) 

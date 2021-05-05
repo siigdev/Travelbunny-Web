@@ -5,9 +5,6 @@ import { reserveTrip } from '../../actions/tripActions/tripActions'
 import { closeAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
 
 class AcceptReserveTripModal extends Component {
-    constructor(props){
-        super(props)
-    }
     handleSubmit = (e) => {
         this.props.closeAcceptReserveTripModal();
         this.props.reserveTrip()
