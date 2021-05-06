@@ -23,7 +23,7 @@ class Browse extends Component {
         this.props.saveSearchoptions(this.match.length, this.match.location, this.match.start, this.match.end);
         this.state = {
             error: '',
-            loading: false,
+            loading: true,
             loadingWithSearchParams: false,
             price: 975,
             start: this.match.start,
@@ -37,7 +37,9 @@ class Browse extends Component {
         if(this.props.trips !== null && this.props.trips !== undefined && this.props.location.new !== true) {
             this.setState({ loading: false })
         }
-        this.saveStateToParamsAndSearchTrip();
+        else {
+            this.saveStateToParamsAndSearchTrip();
+        }
     }
 
     saveStateToParamsAndSearchTrip(){
