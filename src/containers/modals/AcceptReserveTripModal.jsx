@@ -1,46 +1,47 @@
 import React, { Component } from 'react'
+import { useHistory } from 'react-router-dom';
 import { Button, Modal, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reserveTrip } from '../../actions/tripActions/tripActions'
 import { closeAcceptReserveTripModal } from '../../actions/modalActions/modalActions'
 
-class AcceptReserveTripModal extends Component {
-    handleSubmit = (e) => {
-        this.props.closeAcceptReserveTripModal();
-        this.props.reserveTrip()
-        this.props.history.push({
-            pathname: '/Purchase/' + this.props.trip.id
+const AcceptReserveTripModal = (props) => {
+    let history = useHistory();
+    function handleSubmit(e) {
+        props.closeAcceptReserveTripModal();
+        props.reserveTrip()
+        
+        history.push({
+            pathname: '/Purchase/' + props.trip.id
         })
     }
-    handleClose = () => {
-        this.props.closeAcceptReserveTripModal();
+    function handleClose() {
+        props.closeAcceptReserveTripModal();
     };
-    render() {
-        return (
-            <>
-                <Modal show={this.props.AcceptReserveTripModal}>
-                    <Modal.Header closeButton onClick={this.handleClose}>
-                        <Modal.Title>Accept Reserve</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        You are about to reserve this trip. This will grant you a 30 minute interval to complete the purchase before the travel package might expire. Are you sure you want to reserve this trip now?
-                        <Row>
-                            <Col style={{paddingRight: "5px"}}>
-                                <Button variant="primary" type="submit" onClick={this.handleSubmit}>
-                                    Submit
-                                </Button>
-                            </Col>
-                            <Col style={{paddingLeft: "5px"}}>
-                                <Button variant="secondary" type="cancel" onClick={this.handleClose}>
-                                    Cancel
-                                </Button>
-                            </Col>
-                        </Row>
-                    </Modal.Body>
-                </Modal>
-            </>
-        );
-    }
+    return (
+        <>
+            <Modal show={props.AcceptReserveTripModal}>
+                <Modal.Header closeButton onClick={handleClose}>
+                    <Modal.Title>Accept Reserve</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    You are about to reserve this trip. This will grant you a 30 minute interval to complete the purchase before the travel package might expire. Are you sure you want to reserve this trip now?
+                    <Row>
+                        <Col style={{paddingRight: "5px"}}>
+                            <Button variant="primary" type="submit" onClick={handleSubmit}>
+                                Submit
+                            </Button>
+                        </Col>
+                        <Col style={{paddingLeft: "5px"}}>
+                            <Button variant="secondary" type="cancel" onClick={handleClose}>
+                                Cancel
+                            </Button>
+                        </Col>
+                    </Row>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
 }
 
 const mapStateToProps = (state) => {
