@@ -26,6 +26,8 @@ class Browse extends Component {
             loading: true,
             loadingWithSearchParams: false,
             price: 975,
+            includeCountries: [],
+            avoidContries: [],
             start: this.match.start,
             end: this.match.end,
             location: this.match.location,
@@ -44,12 +46,15 @@ class Browse extends Component {
 
     saveStateToParamsAndSearchTrip(){
         this.setState({loadingWithSearchParams: true}) 
+        
         var params = (new URLSearchParams({
             windowStart: (typeof(this.state.start) === 'object') ? timeHelper.converDateToYYYYMMDD(this.state.start) : this.state.start,
             windowEnd: (typeof(this.state.end) === 'object') ? timeHelper.converDateToYYYYMMDD(this.state.end) :this.state.end,
             initialLocation: this.state.location,
             stayLength: this.state.length,
             country: this.state.country,
+            includeCountries: this.state.includeCountries.map(item => item['value']),
+            avoidContries: this.state.avoidContries.map(item => item['value']),
             currency: 'EUR',
             locale: 'en-US'
         }));
@@ -127,7 +132,7 @@ class Browse extends Component {
                         <InputGroup className="mb-2">
                             <Select
                             defaultValue={[]}
-                            placeholder={'Destinations'}
+                            placeholder={'Include countries'}
                             isMulti
                             name="destinations"
                             id="search-must-go-destination"
@@ -135,6 +140,22 @@ class Browse extends Component {
                             components={{ DropdownIndicator }}
                             className="basic-multi-select"
                             classNamePrefix="select"
+                            onChange={countryList => this.setState({ includeCountries: countryList })}
+                            styles={{indicatorSeparator: (styles) => ({height: '100%', borderLeft: '1px solid #ced4da'})}}
+                        />
+                        </InputGroup>
+                        <InputGroup className="mb-2">
+                            <Select
+                            defaultValue={[]}
+                            placeholder={'Avoid countries'}
+                            isMulti
+                            name="destinations"
+                            id="search-avoid-destination"
+                            options={cities}
+                            components={{ DropdownIndicator }}
+                            className="basic-multi-select"
+                            classNamePrefix="select"
+                            onChange={countryList => this.setState({ avoidContries: countryList })}
                             styles={{indicatorSeparator: (styles) => ({height: '100%', borderLeft: '1px solid #ced4da'})}}
                         />
                         </InputGroup>
@@ -166,8 +187,30 @@ class Browse extends Component {
                                 <InputGroup.Text><FontAwesomeIcon icon={faCalendarCheck} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
                         </InputGroup>
-
-                        <Form.Group controlId="formBasicRange">
+                        <hr/>
+                        <Form.Check
+                            type="radio"
+                            label="Short trip (7-11 days)"
+                            name="stayLengthRadioGroup"
+                            id="shortTrip"
+                            onClick={e => this.setState({ length: 9 })}
+                        />
+                        <Form.Check
+                            type="radio"
+                            label="Medium trip (12-16 days)"
+                            name="stayLengthRadioGroup"
+                            id="mediumTrip"
+                            onClick={e => this.setState({ length: 14 })}
+                        />
+                        <Form.Check
+                            type="radio"
+                            label="Long trip (17-22 days)"
+                            name="stayLengthRadioGroup"
+                            id="longTrip"
+                            onClick={e => this.setState({ length: 20 })}
+                        />
+                        <hr/>
+                        {/* <Form.Group controlId="formBasicRange">
                             <Form.Label>Maximum Price</Form.Label>
                             <Form.Control type="range" value={this.state.price} max="10000" onChange={e => this.setState({ price: e.target.value })} />
                         </Form.Group>
@@ -176,7 +219,7 @@ class Browse extends Component {
                             <InputGroup.Append>
                                 <InputGroup.Text><FontAwesomeIcon icon={faDollarSign} size="1x" /></InputGroup.Text>
                             </InputGroup.Append>
-                        </InputGroup>
+                        </InputGroup> */}
 
 
                         <Form.Check type="checkbox" label="Recommended" />
