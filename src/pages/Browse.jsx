@@ -27,7 +27,7 @@ class Browse extends Component {
             loadingWithSearchParams: false,
             price: 975,
             includeCountries: [],
-            avoidContries: [],
+            avoidCountries: [],
             start: this.match.start,
             end: this.match.end,
             location: this.match.location,
@@ -47,14 +47,15 @@ class Browse extends Component {
     saveStateToParamsAndSearchTrip(){
         this.setState({loadingWithSearchParams: true}) 
         
+        console.log(this.state.avoidCountries.map(item => item['value']))
         var params = (new URLSearchParams({
             windowStart: (typeof(this.state.start) === 'object') ? timeHelper.converDateToYYYYMMDD(this.state.start) : this.state.start,
             windowEnd: (typeof(this.state.end) === 'object') ? timeHelper.converDateToYYYYMMDD(this.state.end) :this.state.end,
             initialLocation: this.state.location,
             stayLength: this.state.length,
             country: this.state.country,
-            includeCountries: this.state.includeCountries.map(item => item['value']),
-            avoidContries: this.state.avoidContries.map(item => item['value']),
+            includeCountries: encodeURIComponent(JSON.stringify(this.state.includeCountries.map(item => item['value']))),
+            avoidCountries: encodeURIComponent(JSON.stringify(this.state.avoidCountries.map(item => item['value']))),
             currency: 'EUR',
             locale: 'en-US'
         }));
@@ -155,7 +156,7 @@ class Browse extends Component {
                             components={{ DropdownIndicator }}
                             className="basic-multi-select"
                             classNamePrefix="select"
-                            onChange={countryList => this.setState({ avoidContries: countryList })}
+                            onChange={countryList => this.setState({ avoidCountries: countryList })}
                             styles={{indicatorSeparator: (styles) => ({height: '100%', borderLeft: '1px solid #ced4da'})}}
                         />
                         </InputGroup>
