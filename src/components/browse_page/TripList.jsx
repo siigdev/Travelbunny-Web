@@ -6,70 +6,77 @@ class TripList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tripList: this.props.trips
+            tripList: props.trips
         }
     }
 
-    componentDidUpdate() {
+    // componentDidMount() {
+    //     this.setState({tripList: this.props.trips})
+    //     console.log(this.state.tripList)
+    // }
+    // static getDerivedStateFromProps (props, state)
+
+    static getDerivedStateFromProps(props, state) {
+        console.log(props.sortBy)
         let sortedTrips;
-        switch(this.props.sortBy) {
+
+        switch(props.sortBy) {
             case 'date':
                 //takes 2 trips, gets the stay length for each and compares it to use sort
-                sortedTrips = this.props.trips.sort((tripA, tripB) => {
-                    const [tripALength, tripBLength] = [this.getTotalStayLength(tripA), this.getTotalStayLength(tripB)];
+                sortedTrips = props.trips.sort((tripA, tripB) => {
+                    const [tripALength, tripBLength] = [getTotalStayLengthExtracted(tripA), getTotalStayLengthExtracted(tripB)];
                     return tripALength - tripBLength;
                 });
 
-                if (this.state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips })
+                if (state.tripList !== sortedTrips) {
+                    this.setState({ tripList: sortedTrips });
                 }
 
                 break;
             
             case 'priceLowToHigh':
-                sortedTrips = this.props.trips.sort((tripA, tripB) => {
+                sortedTrips = props.trips.sort((tripA, tripB) => {
                     return tripA.price - tripB.price;
                 });
 
-                if (this.state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips })
+                if (state.tripList !== sortedTrips) {
+                    this.setState({ tripList: sortedTrips });
                 }
 
                 break;
 
             case 'priceHighToLow':
-                sortedTrips = this.props.trips.sort((tripA, tripB) => {
+                sortedTrips = props.trips.sort((tripA, tripB) => {
                     return tripB.price - tripA.price;
                 })
 
-                if (this.state.tripList !== sortedTrips) {
+                if (state.tripList !== sortedTrips) {
                     this.setState({ tripList: sortedTrips });
                 }
 
                 break;
 
             case 'numberOfCitiesHighToLow':
-                sortedTrips = this.props.trips.sort((tripA, tripB) => {
+                sortedTrips = props.trips.sort((tripA, tripB) => {
                     return tripB.locations.length - tripA.locations.length;
                 });
 
-                if (this.state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips })
+                if (state.tripList !== sortedTrips) {
+                    this.setState({ tripList: sortedTrips });
                 }
 
                 break;
             case 'numberOfCitiesLowToHigh':
-                sortedTrips = this.props.trips.sort((tripA, tripB) => {
+                sortedTrips = props.trips.sort((tripA, tripB) => {
                     return tripA.locations.length - tripB.locations.length;
                 });
 
-                if (this.state.tripList !== sortedTrips) {
+                if (state.tripList !== sortedTrips) {
                     this.setState({ tripList: sortedTrips })
                 }
 
                 break;
     
-            
             default:
                 break;
         }
@@ -89,13 +96,14 @@ class TripList extends Component {
     }
 
     renderTrips() {
-            return this.state.tripList.map((trip) => {
-                return (
-                    <div onClick={() => {this.viewTrip(trip)}} key={trip.id}>
-                        <TripBox trip={trip}/>
-                    </div>
-                )
-            })
+        // console.log(trips)
+        return this.state.tripList.map((trip) => {
+            return (
+                <div onClick={() => {this.viewTrip(trip)}} key={trip.id}>
+                    <TripBox trip={trip}/>
+                </div>
+            )
+        })
     }
 
     render() {
@@ -108,11 +116,17 @@ class TripList extends Component {
             }
             return (
                 <div>
+                    {/* {!this.state.tripList === null ? this.renderTrips(this.state.tripList) : this.renderTrips(this.props.trips)} */}
                     {this.renderTrips()}
                 </div>
             )
     }
-    
+}
+
+const getTotalStayLengthExtracted = (trip) => {
+    return (
+        trip.locations.reduce((sum, b) => sum + b.stayLength, 0)
+    )
 }
 
 export default TripList;

@@ -63,8 +63,8 @@ class Browse extends Component {
             .then(response => response.json())
             .then(response => {
                 this.props.saveTripsToState(response.trips)
-                this.setState({ loading: false, loadingWithSearchParams: false })
             })
+            .then(() => this.setState({ loading: false, loadingWithSearchParams: false }))
             .catch((error) => {
                 this.setState({ loading: false, loadingWithSearchParams: false, error: error })
             });
@@ -77,11 +77,11 @@ class Browse extends Component {
                     Error! We could not find any travel packages matching your search parameters. Please <a href="javascript:window.location.reload(true)">try again</a>.
                 </Alert>
             )
-        else return this.props.trips.map((trip) => {
+        else return this.props.trips/*.map((trip) => {
             return (
                 trip
             );
-        })
+        })*/
     }
     render() {
         if (this.state.loading) {
