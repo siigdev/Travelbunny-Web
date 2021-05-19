@@ -71,17 +71,9 @@ class Browse extends Component {
     }
 
     renderTrips() {
-        if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length))
-            return (
-                <Alert variant='danger'>
-                    Error! We could not find any travel packages matching your search parameters. Please <a href="javascript:window.location.reload(true)">try again</a>.
-                </Alert>
-            )
-        else return this.props.trips/*.map((trip) => {
-            return (
-                trip
-            );
-        })*/
+        if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length)) {
+            return false
+        } else {return this.props.trips}
     }
     render() {
         if (this.state.loading) {

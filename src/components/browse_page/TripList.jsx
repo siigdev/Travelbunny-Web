@@ -10,14 +10,7 @@ class TripList extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.setState({tripList: this.props.trips})
-    //     console.log(this.state.tripList)
-    // }
-    // static getDerivedStateFromProps (props, state)
-
     static getDerivedStateFromProps(props, state) {
-        console.log(props.sortBy)
         let sortedTrips;
 
         switch(props.sortBy) {
@@ -96,7 +89,6 @@ class TripList extends Component {
     }
 
     renderTrips() {
-        // console.log(trips)
         return this.state.tripList.map((trip) => {
             return (
                 <div onClick={() => {this.viewTrip(trip)}} key={trip.id}>
@@ -116,7 +108,6 @@ class TripList extends Component {
             }
             return (
                 <div>
-                    {/* {!this.state.tripList === null ? this.renderTrips(this.state.tripList) : this.renderTrips(this.props.trips)} */}
                     {this.renderTrips()}
                 </div>
             )
