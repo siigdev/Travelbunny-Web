@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Loading from '../components/global/Loading'
 import LoadingTripGeneration from '../components/global/LoadingTripGeneration/LoadingTripGeneration'
-import TripBox from '../components/browse_page/TripBox'
 import TripList from '../components/browse_page/TripList'
-import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { saveTripsToState } from '../actions/tripActions/tripActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faCalendarCheck, faSortAmountUp, faSortAmountDown, faSortNumericUp, faDollarSign, faGlobe, faPlaneDeparture } from "@fortawesome/free-solid-svg-icons";
@@ -93,15 +92,20 @@ class Browse extends Component {
                 <Row>
                     <Col>
                         <Container className="sort-box">
-                            <Button variant="link" onClick={() => this.setState({ sortBy: 'date' })}><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</Button>
-                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceLowToHigh' })}><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
-                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceHighToLow' })}><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
                             {/*Since this button can toggle both orders, a ternary operator determines whether to set high to low or low to high*/}
                             <Button
-                                variant="link" 
+                                variant="link"
+                                onClick={() => this.state.sortBy !== 'dateSoonerToLater' ? this.setState({ sortBy: 'dateSoonerToLater' }) : this.setState({ sortBy: 'dateLaterToSooner' })}>
+                                <FontAwesomeIcon icon={faCalendar} size="1x" /> Date
+                            </Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceLowToHigh' })}><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceHighToLow' })}><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
+                            <Button
+                                variant="link"
                                 onClick={() => this.state.sortBy !== 'numberOfCitiesHighToLow' ? this.setState({ sortBy: 'numberOfCitiesHighToLow' }) : this.setState({ sortBy: 'numberOfCitiesLowToHigh' })}>
                                 <FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities
                             </Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'stayLength' })}><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Stay Length</Button>
                         </Container>
                         {this.state.loadingWithSearchParams ? <Loading /> : <TripList history={this.props.history} trips={this.renderTrips()} sortBy={this.state.sortBy}/>}
                         

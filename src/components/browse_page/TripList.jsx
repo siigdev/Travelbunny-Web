@@ -14,64 +14,66 @@ class TripList extends Component {
         let sortedTrips;
 
         switch(props.sortBy) {
-            case 'date':
-                //takes 2 trips, gets the stay length for each and compares it to use sort
+            case false:
+                return null
+            
+            case 'dateSoonerToLater':
                 sortedTrips = props.trips.sort((tripA, tripB) => {
-                    const [tripALength, tripBLength] = [getTotalStayLengthExtracted(tripA), getTotalStayLengthExtracted(tripB)];
-                    return tripALength - tripBLength;
+                    const dateA = new Date(tripA.startDate).getTime();
+                    const dateB = new Date(tripB.startDate).getTime();
+                    return dateA - dateB
                 });
 
-                if (state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips });
-                }
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
 
-                break;
-            
+            case 'dateLaterToSooner':
+                sortedTrips = props.trips.sort((tripA, tripB) => {
+                    const dateA = new Date(tripA.startDate).getTime();
+                    const dateB = new Date(tripB.startDate).getTime();
+                    return dateB - dateA
+                });
+
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
+
             case 'priceLowToHigh':
                 sortedTrips = props.trips.sort((tripA, tripB) => {
-                    return tripA.price - tripB.price;
+                    return tripA.price - tripB.price
                 });
 
-                if (state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips });
-                }
-
-                break;
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
 
             case 'priceHighToLow':
                 sortedTrips = props.trips.sort((tripA, tripB) => {
-                    return tripB.price - tripA.price;
+                    return tripB.price - tripA.price
                 })
 
-                if (state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips });
-                }
-
-                break;
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
 
             case 'numberOfCitiesHighToLow':
                 sortedTrips = props.trips.sort((tripA, tripB) => {
-                    return tripB.locations.length - tripA.locations.length;
+                    return tripB.locations.length - tripA.locations.length
                 });
 
-                if (state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips });
-                }
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
 
-                break;
             case 'numberOfCitiesLowToHigh':
                 sortedTrips = props.trips.sort((tripA, tripB) => {
-                    return tripA.locations.length - tripB.locations.length;
+                    return tripA.locations.length - tripB.locations.length
                 });
 
-                if (state.tripList !== sortedTrips) {
-                    this.setState({ tripList: sortedTrips })
-                }
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
 
-                break;
+            case 'stayLength':
+                //takes 2 trips, gets the stay length for each and compares it to use sort
+                sortedTrips = props.trips.sort((tripA, tripB) => {
+                    const [tripALength, tripBLength] = [getTotalStayLengthExtracted(tripA), getTotalStayLengthExtracted(tripB)];
+                    return tripALength - tripBLength
+                });
+
+                return state.tripList !== sortedTrips ?  { tripList: sortedTrips } : null
     
             default:
-                break;
+                return null
         }
     }
 
