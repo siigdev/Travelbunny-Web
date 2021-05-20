@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Loading from '../components/global/Loading'
 import LoadingTripGeneration from '../components/global/LoadingTripGeneration/LoadingTripGeneration'
-import TripBox from '../components/browse_page/TripBox'
-import { Container, Row, Col, Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap';
+import TripList from '../components/browse_page/TripList'
+import { Container, Row, Col, Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { saveTripsToState } from '../actions/tripActions/tripActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faCalendarCheck, faSortAmountUp, faSortAmountDown, faSortNumericUp, faDollarSign, faGlobe, faPlaneDeparture } from "@fortawesome/free-solid-svg-icons";
@@ -32,7 +32,8 @@ class Browse extends Component {
             end: this.match.end,
             location: this.match.location,
             country: this.match.country,
-            length: this.match.length
+            length: this.match.length,
+            sortBy: undefined
         }
     }
     componentDidMount() {
@@ -67,33 +68,17 @@ class Browse extends Component {
             .then(response => response.json())
             .then(response => {
                 this.props.saveTripsToState(response.trips)
-                this.setState({ loading: false, loadingWithSearchParams: false })
             })
+            .then(() => this.setState({ loading: false, loadingWithSearchParams: false }))
             .catch((error) => {
                 this.setState({ loading: false, loadingWithSearchParams: false, error: error })
             });
     }
 
-    viewTrip(trip) {
-        this.props.history.push({
-            pathname: '/Trip/' + trip.id,
-            res: trip,
-        })
-    }
     renderTrips() {
-        if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length))
-            return (
-                <Alert variant='danger'>
-                    Error! We could not find any travel packages matching your search parameters. Please <a href="javascript:window.location.reload(true)">try again</a>.
-                </Alert>
-            )
-        else return this.props.trips.map((trip) => {
-            return (
-                <div onClick={() => this.viewTrip(trip)} key={trip.id} >
-                    <TripBox trip={trip} />
-                </div>
-            );
-        })
+        if (!this.state.loading &&  (this.props.trips === undefined || this.props.trips === null || !this.props.trips.length)) {
+            return false
+        } else {return this.props.trips}
     }
     render() {
         if (this.state.loading) {
@@ -107,12 +92,22 @@ class Browse extends Component {
                 <Row>
                     <Col>
                         <Container className="sort-box">
-                            <Button variant="link"><FontAwesomeIcon icon={faCalendar} size="1x" /> Date</Button>
-                            <Button variant="link" ><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
-                            <Button variant="link"><FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities</Button>
+                            {/*Since this button can toggle both orders, a ternary operator determines whether to set high to low or low to high*/}
+                            <Button
+                                variant="link"
+                                onClick={() => this.state.sortBy !== 'dateSoonerToLater' ? this.setState({ sortBy: 'dateSoonerToLater' }) : this.setState({ sortBy: 'dateLaterToSooner' })}>
+                                <FontAwesomeIcon icon={faCalendar} size="1x" /> Date
+                            </Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceLowToHigh' })}><FontAwesomeIcon icon={faSortAmountUp} size="1x" /> Price Low to High</Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'priceHighToLow' })}><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Price High to Low</Button>
+                            <Button
+                                variant="link"
+                                onClick={() => this.state.sortBy !== 'numberOfCitiesHighToLow' ? this.setState({ sortBy: 'numberOfCitiesHighToLow' }) : this.setState({ sortBy: 'numberOfCitiesLowToHigh' })}>
+                                <FontAwesomeIcon icon={faSortNumericUp} size="1x" /> Number of Cities
+                            </Button>
+                            <Button variant="link" onClick={() => this.setState({ sortBy: 'stayLength' })}><FontAwesomeIcon icon={faSortAmountDown} size="1x" /> Stay Length</Button>
                         </Container>
-                        {this.state.loadingWithSearchParams ? <Loading /> : this.renderTrips()}
+                        {this.state.loadingWithSearchParams ? <Loading /> : <TripList history={this.props.history} trips={this.renderTrips()} sortBy={this.state.sortBy}/>}
                         
                     </Col>
 
