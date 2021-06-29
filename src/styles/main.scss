@@ -485,3 +485,11 @@ a {
   max-width: 40px;
   width: 40px;
 }
+
+.question .card-header {
+ 
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
